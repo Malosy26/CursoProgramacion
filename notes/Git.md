@@ -61,6 +61,8 @@ modified: '2025-06-24T08:37:18.648Z'
 
 ---
 
+
+
 🤝 Cómo añadir un colaborador a tu repositorio en GitHub
 ✅ Requisitos previos
 Debes ser el propietario del repositorio o tener permisos de administrador.
@@ -127,6 +129,65 @@ flowchart TD
 
 
 ```
+
+
+
+
+# 🌿 Comandos de Git para trabajar con ramas
+
+
+## 🔀 Crear y cambiar de rama
+
+- `git branch`  
+  👉 Lista todas las ramas locales del repositorio.
+
+- `git branch <nombre-rama>`  
+  👉 Crea una nueva rama con el nombre especificado.
+
+- `git checkout <nombre-rama>`  
+  👉 Cambia a la rama especificada.
+
+- `git checkout -b <nombre-rama>`  
+  👉 Crea una nueva rama y cambia a ella directamente.
+
+## 🔁 Fusionar ramas (merge y rebase)
+
+- `git merge <nombre-rama>`  
+  👉 Fusiona la rama especificada con la rama actual. Crea un nuevo commit de merge si es necesario.
+
+- `git rebase <nombre-rama>`  
+  👉 Reaplica los commits de la rama actual encima de la rama especificada (reescribe el historial).
+
+## ❌ Eliminar ramas
+
+- `git branch -d <nombre-rama>`  
+  👉 Elimina la rama especificada si ya ha sido fusionada.
+
+- `git branch -D <nombre-rama>`  
+  👉 Elimina la rama especificada forzadamente, aunque no esté fusionada.
+
+## 📤 Subir y trabajar con ramas remotas
+
+- `git push origin <nombre-rama>`  
+  👉 Sube la rama local al repositorio remoto.
+
+- `git push -u origin <nombre-rama>`  
+  👉 Sube la rama al remoto y la vincula para futuros `git push` y `git pull`.
+
+- `git fetch`  
+  👉 Descarga los cambios del repositorio remoto sin fusionarlos.
+
+- `git pull`  
+  👉 Descarga y fusiona los cambios del remoto a tu rama actual.
+
+## 📥 Ramas remotas
+
+- `git branch -r`  
+  👉 Muestra las ramas remotas disponibles.
+
+- `git checkout -t origin/<nombre-rama>`  
+  👉 Crea una nueva rama local rastreando una rama remota.
+
 
 
 
