@@ -91,14 +91,48 @@ Para confirmar que Java está correctamente instalado y configurado:
 
 
 
-- Instalar VsCode
 
-1. Buscamos la pagina oficial de VsCode y vamos  a descargas en este caso al ser windows descargamos la version para windows(la version arm es para procesadores arm) el instalador que usaremos sera system installer.
+# 🖥️ Guía para instalar Visual Studio Code y configurarlo para Java
 
-2. En extensiones buscar spanish y elegir la extension de español por microsoft. Te preguntara si quieres reiniciar el programa y cambiar el lenguaje le damos a que si.
+## 🔧 Paso 1: Instalar Visual Studio Code
 
+1. Abre tu navegador y busca la página oficial de **[Visual Studio Code](https://code.visualstudio.com/)**.
+2. Dirígete a la sección de **Descargas**.
+3. Como estás usando **Windows**, descarga la versión para Windows.  
+   > 🔹 Si tu computadora tiene un procesador ARM (menos común), selecciona la versión ARM.  
+   > 🔹 En la mayoría de los casos, selecciona el instalador que dice **"System Installer"**.
+4. Ejecuta el archivo descargado y sigue los pasos del instalador para completar la instalación.
 
-3. Instalar el extension pack for java buscandolo en las extensiones, el de microsoft.
+---
+
+## 🌍 Paso 2: Cambiar el idioma a español
+
+1. Abre Visual Studio Code.
+2. Ve al menú de **Extensiones** (puedes usar el atajo `Ctrl + Shift + X`).
+3. En la barra de búsqueda escribe: `Spanish`.
+4. Instala la extensión llamada **"Spanish Language Pack for Visual Studio Code"** publicada por **Microsoft**.
+5. Una vez instalada, aparecerá una ventana preguntando si deseas reiniciar y cambiar el idioma.  
+   Haz clic en **"Sí"** para aplicar el idioma español.
+
+---
+
+## ☕ Paso 3: Instalar el Extension Pack for Java
+
+1. Nuevamente, en el menú de **Extensiones**, busca:  
+   `Extension Pack for Java`.
+2. Asegúrate de elegir el **paquete de Microsoft** (verifica que el autor sea "Microsoft").
+3. Haz clic en **Instalar**.  
+   Esto instalará automáticamente todas las herramientas esenciales para programar en Java:
+   - Soporte para el lenguaje Java
+   - Depurador de Java
+   - Maven
+   - Pruebas unitarias
+   - IntelliCode (sugerencias inteligentes)
+
+---
+
+✅ ¡Listo! Ahora tienes Visual Studio Code configurado para trabajar cómodamente con Java y en español.
+
 
 
 
