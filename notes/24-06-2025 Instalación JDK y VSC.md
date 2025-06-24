@@ -6,7 +6,7 @@ modified: '2025-06-24T08:37:18.648Z'
 
 # 24-06-2025 Instalación JDK y VSC
 
-## Instalar Java y VSC
+
 
 # ☕ Instalación de Java en Windows 11
 
