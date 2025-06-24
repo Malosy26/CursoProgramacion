@@ -110,37 +110,10 @@ Selecciona el nivel de acceso desde el menú desplegable.
 
 
 
-# 📊 Diagrama: Flujo desde archivo local hasta GitHub
-
-```plaintext
-📂 Archivo local creado
-        │
-        ▼
-🗂️  git init
-(Inicializa repositorio Git local)
-        │
-        ▼
-➕ git add .
-(Agrega archivos al área de preparación)
-        │
-        ▼
-✅ git commit -m "Primer commit"
-(Captura los cambios con un mensaje)
-        │
-        ▼
-🌐 git remote add origin <url>
-(Conecta al repositorio remoto, ej: GitHub)
-        │
-        ▼
-🌱 git branch -M main
-(Define 'main' como rama principal)
-        │
-        ▼
-🚀 git push -u origin main
-(Sube tu código al repositorio remoto)
 
 
-# 📊 Diagrama Mermaid: Flujo desde archivo local hasta GitHub
+
+
 
 
 
