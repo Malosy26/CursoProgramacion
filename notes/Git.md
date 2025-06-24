@@ -158,6 +158,10 @@ flowchart TD
 - `git rebase <nombre-rama>`  
   👉 Reaplica los commits de la rama actual encima de la rama especificada (reescribe el historial).
 
+- Pasos para fusionar:
+  - git checkout rama_destino
+  - git merge    rama-a_fusionar
+  - git commit -m "Rama Fusionada"
 ## ❌ Eliminar ramas
 
 - `git branch -d <nombre-rama>`  
