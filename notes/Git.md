@@ -108,7 +108,25 @@ Al lado del nombre del colaborador, haz clic en el ícono de lápiz ✏️.
 
 Selecciona el nivel de acceso desde el menú desplegable.
 
+```mermaid
+flowchart TD
+    A[📂 Archivo local creado] --> B[🗂️ git init<br>Inicializa repositorio Git]
+    B --> C[➕ git add .<br>Añade archivos al área de staging]
+    C --> D[✅ git commit -m mensaje<br>Crea un commit]
+    D --> E[🌐 git remote add origin URL<br>Conecta a repositorio remoto]
+    E --> F[🌱 git branch -M main<br>Renombra rama a main]
+    F --> G[🚀 git push -u origin main<br>Sube al repositorio remoto]
 
+    style A font-size:10px
+    style B font-size:10px
+    style C font-size:10px
+    style D font-size:10px
+    style E font-size:10px
+    style F font-size:10px
+    style G font-size:10px
+
+
+```
 
 
 
