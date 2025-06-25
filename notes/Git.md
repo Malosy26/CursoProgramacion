@@ -155,6 +155,10 @@ flowchart TD
 - `git merge <nombre-rama>`  
   👉 Fusiona la rama especificada con la rama actual. Crea un nuevo commit de merge si es necesario.
 
+- `git chekout -b feature/juanmna <nombre-rama>`  
+  👉 Crea la rama en ese directorio con ese nombre y se coloca en la rama 
+     Con checkout nombre_rama cambias a esa rama
+
 - `git rebase <nombre-rama>`  
   👉 Reaplica los commits de la rama actual encima de la rama especificada (reescribe el historial).
 
