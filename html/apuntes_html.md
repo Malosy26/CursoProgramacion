@@ -17,6 +17,9 @@ Para poner comentarios rapido control+mayuscula+7 y se abre ya un comentario.
   - [Etiquetas HTML](#etiquetas-html)
     - [Estructura básica:](#estructura-básica)
     - [Etiquetas de contenido:](#etiquetas-de-contenido)
+    - [Enlaces](#enlaces)
+      - [Enlaces externos](#enlaces-externos)
+      - [Enlaces internos](#enlaces-internos)
     - [Ejemplo de uso:](#ejemplo-de-uso)
 
 ---
@@ -40,12 +43,28 @@ Las etiquetas son la base del lenguaje HTML. Algunas de las más comunes y sus n
 - `<blockquote>` → Cita de otro autor o fuente.
 - `<sub>` y `<sup>` → Subíndice y superíndice, respectivamente.
 - `<accr>` → Ejemplo cisc y cuando ponel el raton encima te sale el nombre entero.
-- `<span>` → fragmento de texto
-- `<br>` → salto de linea
-- `<pre>` → texto pre-formateado
+- `<span>` → fragmento de texto.
+- `<br>` → salto de linea.
+- `<pre>` → texto pre-formateado.
+- `<code>` → Código (semantico).
+
+### Enlaces
+ #### Enlaces externos
+
+  - LLamamos a una url una URL tiene:
+    - Protocolo.
+    - Servidor.
+    - Ruta.
+  
+#### Enlaces internos
+
+
 ### Ejemplo de uso:
 ```html
 <p>Superíndice y Subíndice:<br>
    Hm<sup>3</sup><br>
    H<sub>2</sub>O
 </p>
+
+
+wubuntu
