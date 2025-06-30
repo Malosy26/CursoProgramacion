@@ -7,27 +7,45 @@ Para poner comentarios rapido control+mayuscula+7 y se abre ya un comentario.
 
 >Con el f1 saldra un buscador y ponemos markdown el primero create table of contens además tambien saldrán el resto de opciones de la extensión.
 
+>Rellenar esto con los apuntes del repo del profesor.
 
- # HTML
+
+# HTML
+## Tabla de contenidos
 - [HTML](#html)
-    - [Etiquetas html](#etiquetas-html)
-    - [Atributos html](#atributos-html)
-    - [Validador HTML](#validador-html)
+  - [Tabla de contenidos](#tabla-de-contenidos)
+  - [Etiquetas HTML](#etiquetas-html)
+    - [Estructura básica:](#estructura-básica)
+    - [Etiquetas de contenido:](#etiquetas-de-contenido)
+    - [Ejemplo de uso:](#ejemplo-de-uso)
 
-### Etiquetas html
+---
 
- <html> nivel 1
- <head> nivel 1 -> cabecera
- <body> nivel 1 -> cuerpo(se ve)
- <p>    nivel 2 -> párrafo
- <h1-h6> secciones
+## Etiquetas HTML
 
- ### Atributos html
- - id       ->  identificador unico
- - class    ->  clase (se puede repetir)
- - style    ->  formato (CSS en linea)
+Las etiquetas son la base del lenguaje HTML. Algunas de las más comunes y sus niveles jerárquicos:
 
-### Validador HTML
-    https://validator.w3.org/nu/#file
-    Validador a traves de el archivo se puede por codigo tambien.
+### Estructura básica:
+- `<html>` → Nivel 1: Contenedor principal de todo el documento.
+- `<head>` → Nivel 1: Cabecera, contiene metadatos, enlaces a hojas de estilo, scripts, etc.
+- `<body>` → Nivel 1: Cuerpo del documento, contiene todo lo que se muestra en pantalla.
 
+### Etiquetas de contenido:
+- `<p>` →  Párrafo. 
+- `<h1>` a `<h6>` → Títulos o encabezados de diferentes niveles (de mayor a menor).
+- `<strong>` → Negrita (semánticamente importante).
+- `<em>` → Cursiva (énfasis).
+- `<ins>` → Texto subrayado (contenido insertado).
+- `<del>` → Texto tachado (contenido eliminado).
+- `<blockquote>` → Cita de otro autor o fuente.
+- `<sub>` y `<sup>` → Subíndice y superíndice, respectivamente.
+- `<accr>` → Ejemplo cisc y cuando ponel el raton encima te sale el nombre entero.
+- `<span>` → fragmento de texto
+- `<br>` → salto de linea
+- `<pre>` → texto pre-formateado
+### Ejemplo de uso:
+```html
+<p>Superíndice y Subíndice:<br>
+   Hm<sup>3</sup><br>
+   H<sub>2</sub>O
+</p>
