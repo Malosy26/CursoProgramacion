@@ -20,6 +20,7 @@ Para poner comentarios rapido control+mayuscula+7 y se abre ya un comentario.
       - [Enlaces externos](#enlaces-externos)
       - [Enlaces internos](#enlaces-internos)
     - [Ejemplo de uso:](#ejemplo-de-uso)
+    - [Listas](#listas)
 
 
 ---
@@ -101,6 +102,20 @@ Para poner comentarios rapido control+mayuscula+7 y se abre ya un comentario.
    Hm<sup>3</sup><br>
    H<sub>2</sub>O
 </p>
-
+```
 
 wubuntu
+
+### Listas
+- `u1>` (2) → Lista sin ordenar  
+- `o1>` (2) → Lista ordenadas
+  - `<li>` (3) → elemento de la lista 
+  - -> ul>li*3 hacer una lista con 3 elementos vacios 
+  - -> ul>li*3{Elemento $} -> haz una lista con 3 elementos con numero elemento 1 a 3
+  - -> ul>li*3{Elemento 1.$} -> haz una lista con 3 elementos con numero 1.1 a 1l3
+                  
+>Inciso: si se descuadran las tabulaciones del documento boton derecho dar formato al documentoy te lo ordena.
+
+>Builwith te dice con que esta hecha esa pagina.
+
+Si quiero añadir una lista anidada a una lista ya hecha la lista va en el contenido del elemento.
