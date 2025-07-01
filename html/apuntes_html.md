@@ -1,13 +1,17 @@
-Hemos puesto exclamacion y al darle a eme te hace un bloque de codigo automatico.
+Hemos puesto exclamacion y al darle a eme te hace un bloque de codigo automatico html.
 https://validator.w3.org/
 
 Las id son atributos unicos no pueden tener el mismo nombre.
 Los class son classes y si se pueden repetir es decir tener el mismo nombre.
 Para poner comentarios rapido control+mayuscula+7 y se abre ya un comentario.
 
+>Remember : para abrir directamente el bloque de html con emmet es con ! no con <!
+
 >Con el f1 saldra un buscador y ponemos markdown el primero create table of contens además tambien saldrán el resto de opciones de la extensión.
 
 >Rellenar esto con los apuntes del repo del profesor.
+
+>Pagina para aprender freecodecamp w3school
 
 
 # HTML
@@ -21,6 +25,11 @@ Para poner comentarios rapido control+mayuscula+7 y se abre ya un comentario.
       - [Enlaces internos](#enlaces-internos)
     - [Ejemplo de uso:](#ejemplo-de-uso)
     - [Listas](#listas)
+    - [Imagenes](#imagenes)
+      - [Imagenes internas](#imagenes-internas)
+      - [Imagenes externas](#imagenes-externas)
+      - [Mapa de imagenes](#mapa-de-imagenes)
+    - [Tablas](#tablas)
 
 
 ---
@@ -113,9 +122,56 @@ wubuntu
   - -> ul>li*3 hacer una lista con 3 elementos vacios 
   - -> ul>li*3{Elemento $} -> haz una lista con 3 elementos con numero elemento 1 a 3
   - -> ul>li*3{Elemento 1.$} -> haz una lista con 3 elementos con numero 1.1 a 1l3
+  
+  Listas anidadas en el ejemplo de las listas.html
                   
 >Inciso: si se descuadran las tabulaciones del documento boton derecho dar formato al documentoy te lo ordena.
 
 >Builwith te dice con que esta hecha esa pagina.
 
 Si quiero añadir una lista anidada a una lista ya hecha la lista va en el contenido del elemento.
+
+### Imagenes
+  #### Imagenes internas
+
+- `<img>` () → para las imagenes ejemplo abajo
+
+<img src="imagenes/star-trek.jpg" alt="Imagen de star-trek" width="200" height="">
+
+```Markdown
+<img src="imagenes/star-trek.jpg" alt="Imagen de star-trek" width="200" height="">
+
+```
+> en el alt siempre hay que poner un texto para poder pasar la validación en el width y el height solo se modifica 1 para mantener la proporción el sistema el que dejes en blanco lo adapta.
+
+  #### Imagenes externas
+  >https://tinyurl.com/ 
+  con esta pagina se recorta la url de la imagen y se usa tal y como la otra
+
+
+#### Mapa de imagenes
+  >https://www.image-map.net/ En esta pagina se trabaja con la imagen para que te de el codigo del mapa para html
+
+
+### Tablas
+
+
+- `<table>` (2) → tabla  
+- `<caption>` (3) → título 
+- `<tr>` (3) → fila  
+    - `<th>` (4) → celda cabecera  
+    - `<td>` (4) → celda  
+
+- `<thead>` (3) → filas cabecera
+- `<tbody>` (3) → filas cuerpo
+- `<tfoot>` (3) → filas pie 
+
+
+
+
+
+
+
+
+
+

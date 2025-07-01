@@ -1,0 +1,75 @@
+<!-- ejemplo_07_tablas-->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejemplo_07_tablas</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid blue;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--emmet por pasos
+    1)table>tr>th*4 -> Fila cabecera
+    2)tr*4>td*4
+    emmet directo table>(tr>th*4)+(tr*4>th*4)
+
+    -->
+    <table>
+        <caption><strong>Cursos de diseño gráfico</strong></caption>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Horas</th>
+                <th>Plazas</th>
+                <th>Horario</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>html5</td>
+                <td colspan="2" >20</td>
+                
+                <td>09:00-13:00</td>
+            </tr>
+            <tr>
+                <td>css3</td>
+                <td>60</td>
+                <td>20</td>
+                <td>20:30-12:30</td>
+            </tr>
+            <tr>
+                <td>ajax</td>
+                <td rowspan="2">40</td>
+                <td>15</td>
+                <td>16:00-20:00</td>
+            </tr>
+            <tr>
+                <td>usabilidad</td>
+                
+                <td>10</td>
+                <td>16:00-20:00</td>
+            </tr>
+
+
+
+
+        </tbody>
+
+
+    </table>
+
+
+
+</body>
+
+</html>
