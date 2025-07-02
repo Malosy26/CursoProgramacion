@@ -1,0 +1,105 @@
+<!--ejemplo_08_formularios-->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+</head>
+
+<body>
+    <!-- en el from es donde va el enctype="multipart/from-data"-->
+    <form action="#" method="post">
+        <fieldset>
+            <!--label+input:text-->
+            <!--El for va asociado con la id del input-->
+            <!--El name es la variable-->
+            <label for="usuario">Usuario: </label>
+            <input type="text" name="usuario" id="usuario" placeholder="usuario"><br>
+            <label for="clave">Contraseña:</label>
+            <input type="password" name="clave" id="clave"><br>
+            <label for="fechanac">Nacimiento:</label>
+            <input type="date" name="fechanac" id="fechanac" value="2025-07-01"><br>
+
+        </fieldset>
+        <fieldset>
+            <label for="codigopostal">Codigo Postal:</label>
+            <input type="number" name="codigopostal" id="codigopostal" min="01000" max="52999"><br>
+            <label for="email">Correo Electronico:</label>
+            <input type="email" name="email" id="email" required><br>
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" name="telefono" id="telefono">
+
+        </fieldset>
+
+        <fieldset>
+            <label for="comentarios">Comentarios</label>
+            <textarea name="comentarios" id="comentarios" cols="30" rows="10"></textarea><br>
+            <!--label+select>option*5-->
+            <label for="prov">Provincia:</label>
+            <select name="prov" id="prov">
+                <optgroup label="Andalucia">
+                    <option value="se">Sevilla</option>
+                    <option value="gr">Granada</option>
+                    <option value="ca">Cadiz</option>
+
+                </optgroup>
+
+                <option disabled selected>Elige provincia</option>
+
+                <option value="ba">Badajoz</option><br>
+            </select>
+            <fieldset>
+                <!--(input:radio+label)*2-->
+                <!--El value es lo que se manda al sevidor cuando se manda esa opcion-->
+                <!--checked="checked" esto es para dejar marcada la opcion que quiera cuando
+                se inicie el formulario-->
+                <p>Seleccione Género:</p>
+                <input type="radio" name="genero" id="mujer" value="mujer" >
+                <label for="mujer">mujer</label><br>
+                <input type="radio" name="genero" id="hombre" value="hombre">
+                <label for="hombre">hombre</label><br>
+                <p>Intereses</p>
+                <!--para que sea diferente del radio checked que es para marcar si quieres mas de uno-->
+                <!--(input:checkbox+label)*3-->
+                <!--el intereses[] los corchetes es por que va a recibir un array -->
+                <input type="checkbox" name="intereses[]" id="deporte" value="deporte" >
+                <label for="deporte">deporte</label><br>
+                <input type="checkbox" name="intereses[]" id="informatica" value="informatica">
+                <label for="informatica">informatica</label><br>
+                <input type="checkbox" name="intereses[]" id="musica" value="musica">
+                <label for="musica">musica</label><br>
+            </fieldset>
+            <fieldset>
+                <!--label+input:color-->
+                <label for="color">Color de usuario:</label>
+                <input type="color" name="color" id="color">
+                <!--label+input:file-->
+                <!--Para cargar archivos en el form se pone enctype="multipart/from-data"-->
+                <label for="cv">CV</label>
+                <input type="file" name="cv" id="cv" ><br>
+                <input type="hidden" name="hash" value="1234">
+
+
+            </fieldset>
+            
+
+
+
+
+
+        </fieldset>
+
+
+        <hr>
+        <input type="submit" value="Acceder"><br>
+        <input type="reset" value="Borrar datos">
+
+
+    </form>
+
+</body>
+
+</html>

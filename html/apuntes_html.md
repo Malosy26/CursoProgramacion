@@ -13,6 +13,9 @@ Para poner comentarios rapido control+mayuscula+7 y se abre ya un comentario.
 
 >Pagina para aprender freecodecamp w3school
 
+>Hacer ejercicio pagina 79
+
+
 
 # HTML
 ## Tabla de contenidos
@@ -30,6 +33,7 @@ Para poner comentarios rapido control+mayuscula+7 y se abre ya un comentario.
       - [Imagenes externas](#imagenes-externas)
       - [Mapa de imagenes](#mapa-de-imagenes)
     - [Tablas](#tablas)
+    - [Formularios](#formularios)
 
 
 ---
@@ -165,6 +169,31 @@ Si quiero añadir una lista anidada a una lista ya hecha la lista va en el conte
 - `<thead>` (3) → filas cabecera
 - `<tbody>` (3) → filas cuerpo
 - `<tfoot>` (3) → filas pie 
+
+
+### Formularios
+
+>Es la unica manera de obtener informacion del usuario.
+
+post y get -> el get es mas inseguro pero mas rapido y el post encripta la cabecera por ejemplo usar post en el login y en el formulario de busqueda de una pagina usar el get.
+
+- `<form>` (2) → 
+      - `<action>` (3) → la pagina(servidor) que va a procesar los datos del  formulario.
+      - `<fieldset>` (3) → Recuadro.
+
+
+
+
+
+
+###SEO
+
+> Inciso: ratio=contenido(caracteres del contenigo)/codigo(caracteres del codigo) 
+  
+
+
+
+
 
 
 
