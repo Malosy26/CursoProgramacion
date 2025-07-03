@@ -22,7 +22,7 @@
             <input type="password" name="clave" id="clave"><br>
             <label for="fechanac">Nacimiento:</label>
             <input type="date" name="fechanac" id="fechanac" value="2025-07-01"><br>
-
+>Se pueden elegir que el usuario pueda seleccionar multiples elecciones con multiple="multiple" dentro del select
         </fieldset>
         <fieldset>
             <label for="codigopostal">Codigo Postal:</label>
@@ -34,12 +34,15 @@
 
         </fieldset>
 
+
         <fieldset>
             <label for="comentarios">Comentarios</label>
             <textarea name="comentarios" id="comentarios" cols="30" rows="10"></textarea><br>
             <!--label+select>option*5-->
+            <!--para poner multiples elecciones poner multiple="multiple" dentro del select
+            si lo haces el name debe de ser prov[] debe de ser un array-->
             <label for="prov">Provincia:</label>
-            <select name="prov" id="prov">
+            <select name="prov" id="prov" >
                 <optgroup label="Andalucia">
                     <option value="se">Sevilla</option>
                     <option value="gr">Granada</option>
@@ -52,6 +55,7 @@
                 <option value="ba">Badajoz</option><br>
             </select>
             <fieldset>
+                <legend>Dastos basicos</legend>
                 <!--(input:radio+label)*2-->
                 <!--El value es lo que se manda al sevidor cuando se manda esa opcion-->
                 <!--checked="checked" esto es para dejar marcada la opcion que quiera cuando

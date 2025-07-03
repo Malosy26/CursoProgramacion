@@ -34,6 +34,7 @@ Para poner comentarios rapido control+mayuscula+7 y se abre ya un comentario.
       - [Mapa de imagenes](#mapa-de-imagenes)
     - [Tablas](#tablas)
     - [Formularios](#formularios)
+    - [Etiquetas semanticas](#etiquetas-semanticas)
 
 
 ---
@@ -133,6 +134,8 @@ wubuntu
 
 >Builwith te dice con que esta hecha esa pagina.
 
+
+
 Si quiero añadir una lista anidada a una lista ya hecha la lista va en el contenido del elemento.
 
 ### Imagenes
@@ -175,20 +178,58 @@ Si quiero añadir una lista anidada a una lista ya hecha la lista va en el conte
 
 >Es la unica manera de obtener informacion del usuario.
 
-post y get -> el get es mas inseguro pero mas rapido y el post encripta la cabecera por ejemplo usar post en el login y en el formulario de busqueda de una pagina usar el get.
+post y get -> el get es mas inseguro pero mas rapido y el post encripta la cabecera por ejemplo usar post en el login y en el formulario de busqueda de una pagina usar el get se pone en el form.
+
+
 
 - `<form>` (2) → 
-      - `<action>` (3) → la pagina(servidor) que va a procesar los datos del  formulario.
-      - `<fieldset>` (3) → Recuadro.
+    - `<action>` (3) → la pagina(servidor) que va a procesar los datos del formulario.
+    - `<fieldset>` (3) → Recuadro para agrupar los campos del formulario
+        - `<label+input:text>` (4) → Recuadro para texto (ej. nombre)
+        - `<label+input:password>` (4) → Recuadro para la contraseña (ej. en un login)
+        - `<label+input:date>` (4) → Eleccion de fecha
+        - `<label+input:email>` (4) → para un correo electronico
+        - `<label+input:number>` (4) → para introducir números
+        - `<label+input:checkbox>` (4) → para una casilla de verificación (selección múltiple)
+        - `<label+input:radio>` (4) → para botones de opción (selección única)
+        - `<label+input:file>` (4) → para subir archivos
+        - `<label+input:hidden>` (4) → campo oculto que no se muestra al usuario
+        - `<label+input:range>` (4) → para un control deslizante de rango
+        - `<label+input:search>` (4) → para campos de búsqueda
+        - `<label+input:tel>` (4) → para números de teléfono
+        - `<label+input:url>` (4) → para direcciones URL
+        - `<label+input:color>` (4) → para seleccionar un color
+        - `<label+input:datetime-local>` (4) → para seleccionar fecha y hora local
+        - `<label+input:month>` (4) → para seleccionar un mes y año
+        - `<label+input:time>` (4) → para seleccionar una hora
+        - `<label+input:week>` (4) → para seleccionar una semana y año
+        - `<input:submit>` (4) → botón para enviar el formulario
+        - `<input:reset>` (4) → botón para restablecer los campos del formulario
+        - `<input:button>` (4) → botón genérico (requiere JavaScript para su funcionalidad)
+        - `<input:image>` (4) → botón de envío con una imagen
 
+### Etiquetas semanticas
 
+- `<header>` (2) → cabezera de página
+- `<nav>` (2) → Contenedor para enlaces de navegación
+- `<main>` (2) → zona principal solo hay uno
+- `<aside>` (2) → Contenido secundario o relacionado, como barras laterales o publicidad (fecha por ejemplo)
+- `<section>` (2) → Agrupa contenido temáticamente relacionado
+- `<article>` (2) → Contenido autónomo y redistribuible, como una entrada de blog o noticia
+- 
+> Importante: todos los section y los article deben tener un h2 a h6 o en su defecto un atributo aria_label
 
-
+- `<figure>` (2) → Contenido auto-contenido, como imágenes, diagramas, fotos, con un pie de foto opcional (`<figcaption>`)
+- `<figcaption>` → (3)
+- `<footer>` (2) → Pie de página de una sección o documento, a menudo con información de autoría, derechos de copyright o enlaces relacionados
+   
 
 
 ###SEO
 
-> Inciso: ratio=contenido(caracteres del contenigo)/codigo(caracteres del codigo) 
+> Inciso: ratio=contenido(caracteres del contenigo)/codigo(caracteres del codigo)
+
+
   
 
 
