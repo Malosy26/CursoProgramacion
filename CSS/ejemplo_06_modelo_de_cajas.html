@@ -1,0 +1,49 @@
+<!-- ejemplo 06-->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejemplo06</title>
+    <style>
+        p {
+            width: 80%;
+            border: 1px solid blue;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-bottom: 50px;
+
+            padding: 10px 40px 20px 30px;
+            text-align: justify;
+        }
+        /*Si tengo dos valores el primero es 
+        arriba y abajo y el segundo izquieda y derecha*/
+        p+p {
+            padding: 30px 80px;
+        }
+        h2 {
+            font-size: x-large;
+            background-color: brown;
+            width: 50%;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--p[id=p$]*3{parrafo $}-->
+
+    <p id="p1">Esto funciona así porque el selector + evalúa la posición relativa entre elementos hermanos. Si tu tabla
+        tiene una estructura más compleja</p>
+    <p id="p2">Los navegadores crean y colocan las cajas de
+        forma automática, pero CSS permite modificar
+        todas sus características.</p>
+    <p id="p3">Las partes que componen cada caja y su
+        orden de visualización desde el punto de vista
+        del usuario son las siguientes:</p>
+    <h2>Titulo</h2>
+</body>
+
+</html>

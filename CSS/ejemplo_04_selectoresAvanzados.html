@@ -1,0 +1,77 @@
+<!--Ejemplo selectores avanzados CTRL +k y CTRL + C-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectores Avanzados</title>
+    <style>
+        /*Descendiente el espacio que hay entre los dos es sele4ctor descendentes*/
+        p a{
+            text-decoration: none;
+        }
+        /*Selector Hijo por eso este no involucra al parrafo 2*/
+        p > a {
+            color: red;
+
+        
+        }
+        /*
+        p > span > a {
+            color: green;
+        }
+            */
+        
+        p + p a { 
+            color: green;
+        }
+        /*Selector de Atributo*/
+        section[aria-label="parrafo7-8"]{
+            background-color: aquamarine;
+        }
+         /*Selector de Atributo Herencia*/
+         section{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+         }
+
+        
+        
+        
+
+    </style>
+</head>
+<body>
+    <!--Familia 1 con p hermanos-->
+    <p>Parrafo 1 con <a href="#">Enlace</a></p>
+    <p>Parrafo 2 con un 
+        <span>Fragmento con un  
+            <a href="#">Enlace</a>
+        </span> fragmento
+    </p>
+     <p>Parrafo 3 con <a href="#">Enlace</a></p>
+    <p>Parrafo 4 con un <span>Fragmento con un  <a href="#">Enlace</a></span> fragmento</p>
+   
+     <section aria-label="parrafo5-6">
+        <p>Parrafo 5 con <a href="#">Enlace</a></p>
+    <p>Parrafo 6 con un 
+        <span>Fragmento con un  
+            <a href="#">Enlace</a>
+        </span> fragmento
+    </p>
+
+
+     </section>
+
+     <section aria-label="parrafo7-8">
+        <p>Parrafo 7 con <a href="#">Enlace</a></p>
+    <p>Parrafo 8 con un 
+        <span>Fragmento con un  
+            <a href="#">Enlace</a>
+        </span> fragmento
+    </p>
+
+
+     </section>
+</body>
+</html>
