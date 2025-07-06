@@ -1,0 +1,178 @@
+<!-- Intento de puntes html con css-->
+
+/*
+Questions
+
+¿es mala practica meter dentro de un css para section aria label un stilo para ese h2 que pudiera llevar ese section?
+
+*/
+/*
+solid no es un argumento valido para un background color es valido para un border style
+*/
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ApuntesHtmlCss</title>
+    /* Estilo para section comandos */
+    <link rel="stylesheet" href="estilosCSS/SectionGit.css">
+
+
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#comandosgit">Comandos Git</a></li>
+                <li>Formulario</li>
+
+            </ul>
+        </nav>
+
+    </header>
+    <main>
+        <section aria-label="comandos">
+            <article>
+                <header>
+                    <figure>
+                        <img src="https://tinyurl.com/muye37j4" alt="imagengit">
+                    </figure>
+                    <h2><a id="comandosgit"></a>Comandos Git</h2>
+                </header>
+            </article>
+
+            <body>
+
+
+                <table id="comandosbasicos">
+                    <caption><strong>Tabla de Comandos Básicos de Git</strong></caption>
+                    <thead>
+                        <tr>
+                            <th>Comando</th>
+                            <th>Función</th>
+                            <th>Comentarios</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="comando3">git init</td>
+                            <td>Iniciar repositorio</td>
+                            <td>Úsalo una sola vez al comenzar un proyecto</td>
+                        </tr>
+                        <tr>
+                            <td class="comando3">git clone "repo"</td>
+                            <td>Clonar un repositorio existente</td>
+                            <td>Necesitas la URL del repositorio remoto</td>
+                        </tr>
+                        <tr>
+                            <td class="comando3">git status</td>
+                            <td>Ver estado de los archivos</td>
+                            <td>Úsalo frecuentemente para saber qué cambió</td>
+                        </tr>
+                        <tr>
+                            <td class="comando3">git add .</td>
+                            <td>Añadir todos los archivos al staging</td>
+                            <td>Incluye todos los cambios sin seleccionar</td>
+                        </tr>
+                        <tr>
+                            <td class="comando3">git add "elemento"</td>
+                            <td>Añadir un archivo específico al staging</td>
+                            <td>Ideal para hacer commits más limpios</td>
+                        </tr>
+                        <tr>
+                            <td class="comando3">git commit -m "string"</td>
+                            <td>Crear un commit con mensaje</td>
+                            <td>El mensaje debe describir claramente el cambio</td>
+                        </tr>
+                        <tr>
+                            <td class="comando3">git commit -a -m "mensaje"</td>
+                            <td>Hacer commit directo de archivos modificados</td>
+                            <td>No incluye archivos nuevos no añadidos antes</td>
+                        </tr>
+                        <tr>
+                            <td class="comando3">git push</td>
+                            <td>Subir cambios al repositorio remoto</td>
+                            <td>Necesario para compartir tu trabajo</td>
+                        </tr>
+                        <tr>
+                            <td class="comando3">git pull</td>
+                            <td>Traer y fusionar cambios del remoto</td>
+                            <td>Úsalo antes de empezar a trabajar cada día</td>
+                        </tr>
+                        <tr>
+                            <td class="comando3">git remote add</td>
+                            <td>Agregar repositorio remoto</td>
+                            <td>Ejemplo: git remote add origin URL</td>
+                        </tr>
+                        <tr>
+                            <td class="comando3">git remote -v</td>
+                            <td>Ver repositorios remotos configurados</td>
+                            <td>Muestra las URLs asociadas al proyecto</td>
+                        </tr>
+                        <tr>
+                            <td class="comando3">git fetch</td>
+                            <td>Descargar cambios remotos sin fusionar</td>
+                            <td>Seguro si solo quieres revisar antes de fusionar</td>
+                        </tr>
+                        <tr>
+                            <td class="comando3">git merge</td>
+                            <td>Fusionar ramas</td>
+                            <td>Requiere resolver conflictos si existen</td>
+                        </tr>
+                    </tbody>
+
+                    <table id="comandosramas">
+                        <caption><strong>Comandos Ramas</strong></caption>
+                        <thead>
+                            <tr>
+                                <th>Comando</th>
+                                <th>Función</th>
+                                <th>Comentario</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="comandos1">git branch "rama"</td>
+                                <td>Crear una nueva rama</td>
+                                <td>Permite trabajar en una línea de desarrollo separada</td>
+                            </tr>
+                            <tr>
+                                <td class="comandos1">git checkout "rama"</td>
+                                <td>Cambiar a otra rama</td>
+                                <td>Úsalo para moverte entre ramas existentes</td>
+                            </tr>
+                            <tr>
+                                <td class="comandos1">git merge rama</td>
+                                <td>Fusionar ramas</td>
+                                <td>Combina los cambios de una rama con la actual</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+
+
+
+
+
+
+            </body>
+        </section>
+
+
+    </main>
+
+
+
+
+
+
+
+</body>
+
+</html>

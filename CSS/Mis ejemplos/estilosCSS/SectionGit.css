@@ -1,0 +1,89 @@
+/* Este css va con ejemplo_propio.html */
+
+section[aria-label="comandos"] {
+    background-color: rgb(0, 255, 238, 0.318);
+
+    border: 2px solid black;
+}
+
+/* Estilo para h2 dentro del section */
+section[aria-label="comandos"] h2 {
+    font-style: oblique;
+}
+
+/* Estilo para la tabla específica */
+table#comandosbasicos {
+    background-color: white;
+    border: 1px solid black;
+    padding: 2px;
+    border-collapse: collapse;
+    /* Asegura bordes unidos */
+}
+
+/* Bordes en las celdas */
+table#comandosbasicos th,
+table#comandosbasicos td {
+    border: 1px solid black;
+
+
+}
+
+table#comandosbasicos caption {
+    font-size: 30px;
+}
+
+table#comandosbasicos th {
+    font-size: 25px;
+    background-color: rgba(3, 3, 255, 0.127);
+}
+
+table#comandosbasicos td {
+    font-size: 18px;
+}
+
+/*
+La estructura de la tabla de la section comandos
+hace que la primera fila que es la que representa al nombre del comando
+tenga la class comando3 de tal manera que este de abajo solo modificara el aspecto de la primera fila
+como son los comandos he tenido a bien resaltarlos frente a lo demas
+*/
+table#comandosbasicos td.comando3 {
+    font-size: 20px;
+    background-color: bisque;
+    font-weight: bold;
+
+}
+
+table#comandosramas {
+    background-color: rgba(63, 230, 8, 0.725);
+    color: rgb(44, 2, 2);
+    border: 2px solid black;
+    padding: 2px;
+    border-collapse: collapse;
+    font-size: 18px;
+}
+
+table#comandosramas caption {
+    font-size: 30px;
+}
+
+table#comandosramas th,
+table#comandosramas td {
+    border: 2px solid black;
+}
+
+table#comandosramas th {
+    font-size: 25px;
+    font-weight: bold;
+    background-color: white;
+}
+
+table#comandosramas td {
+    font-size: 18px;
+}
+
+table#comandosramas td.comandos1 {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: blueviolet;
+}
