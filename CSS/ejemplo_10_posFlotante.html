@@ -1,0 +1,74 @@
+<!--ejemplo 10-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemploflotante</title>
+    <style>
+        /*Posicionamiento flotante::after
+        float: left | right
+        clear: left | right | both
+        visualizacion de cajas y contenedores:
+        visibility: visibilidad
+        diaplay: mostrar
+
+        */
+    main{
+        border: 2px solid red;
+        margin: 20px;
+        height: 400px;
+    }
+    section{
+        margin: 30px;
+        width: 25%;
+    }
+
+    section[aria-label="izq"]{
+        border: 2px solid blue;
+        float: left;
+        visibility: visible;
+    }
+    section[aria-label="cen"]{
+        border: 2px solid green;
+        float: left;
+        margin-left: 60px;
+        /*Ocultar seccion*/
+        /*visibility: hidden;*/
+        
+        
+        /*clear: both;*/
+
+
+        /*quitar la seccion linea de abajo*/
+        display: none;
+
+    }
+    section[aria-label="der"]{
+        border: 2px solid violet;
+        float: right;
+        /*no se va al medio con el sisplay none por que esta flotando en la dere3cha*/
+    }
+    p{
+        margin: 30px;
+        background-color: aqua;
+        padding: 5px;
+        
+    }
+    </style>
+</head>
+<body>
+    <main>
+        <section aria-label="izq">
+            <p>Parrafo izquierda</p>
+        </section>
+        <section aria-label="cen">
+            <p>Parrafo centro</p>
+        </section>
+        <section aria-label="der">
+            <p>Parrafo derecha</p>
+        </section>
+    </main>
+    
+</body>
+</html>

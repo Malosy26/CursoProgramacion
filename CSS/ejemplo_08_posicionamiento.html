@@ -1,0 +1,65 @@
+<!--ejemplo posicionamiento-->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posicionamiento</title>
+    <style>
+        /*
+        Pocisionamiento lo esta dando con zoom 300%......
+        -position: static (flujo natural)
+        -position: relative (respecto a su posicion original; NO sale del flujo)
+        top|bottom|left|right
+        -position: absolute(respecto a su contenedor; sale del flujo)
+        -position: fixed(fijo; respecto a la ventana del navegador)
+        */
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            
+        }
+        p{
+            border: 2px solid blue;
+            position: static;/*Es el normal quie viene por defecto*/
+            margin: 10px;
+            background-color: lightcyan;
+        }
+        p:nth-of-type(2){
+            
+            background-color: lightgreen;
+            position: relative;
+            top: 200px;
+            right:-10px;
+        }
+        /* me mueva con la barra lateral y siempre se queda en el sitio*/
+        p:nth-of-type(4){
+            background-color: beige;
+            position: fixed;
+            bottom: 250px;
+
+
+
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <p id="p1">Esto funciona así porque el selector + evalúa la posición relativa entre elementos hermanos. Si tu tabla
+        tiene una estructura más compleja</p>
+    <p id="p2">Los navegadores crean y colocan las cajas de
+        forma automática, pero CSS permite modificar
+        todas sus características.</p>
+    <p id="p3">Las partes que componen cada caja y su
+        orden de visualización desde el punto de vista
+        del usuario son las siguientes:</p>
+    <p id="p4">Esto funciona así porque el selector + evalúa la posición relativa entre elementos hermanos. Si tu tabla
+        tiene una estructura más compleja</p>
+   
+
+</body>
+
+</html>

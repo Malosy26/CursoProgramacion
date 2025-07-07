@@ -16,8 +16,14 @@
 
 ### Selectores básicos de CSS
 
-> El h1 es por jerarquia por opciones de diseño puede tener el mismo tamaño que otro enunciado.
+> El h1 es por jerarquia(solo puede haber 1) pero por opciones de diseño puede tener el mismo tamaño que otro enunciado.
 
-> Buscar codigo de reste CSS para formatear la pagina para todos los navegadores.
+> Buscar codigo de reset CSS para formatear la pagina para todos los navegadores.
 
 
+### Posicionamiento
+
+- position: static (flujo natural) -> es el que viene por defecto.
+- position: relative (respecto a su posicion original)
+        top|bottom|left|right
+- position: absolute salimos del flujo y posicionamos respecto a nuestro contenedor
