@@ -26,4 +26,8 @@
 - position: static (flujo natural) -> es el que viene por defecto.
 - position: relative (respecto a su posicion original)
         top|bottom|left|right
-- position: absolute salimos del flujo y posicionamos respecto a nuestro contenedor
+- position: absolute salimos del flujo y posicionamos respecto a nuestro contenedor.
+
+
+lorem ipsum la pagina para generarte parrafos.
+https://www.lipsum.com/
