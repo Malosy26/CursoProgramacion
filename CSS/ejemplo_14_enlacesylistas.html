@@ -1,0 +1,94 @@
+<!--enlaces y listas-->
+<!DOCTYPE html>
+
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enlaces y Listas</title>
+    <style>
+        /*Pseudoclase para enlaces
+        :link       -> no se ha pulsado
+        :visited    -> cuando se ha pulsado
+        :hover      ->raton por encima(se aplica a otros elementos)
+        :active     ->gestor de pulsar(se aplica a otros elementos)
+        */
+        p:hover {
+            border: 1px solid blue;
+
+        }
+
+        p:active {
+            background-color: aquamarine;
+        }
+
+        a:link {
+            background-color: rgb(0, 145, 255);
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 2px;
+        }
+
+        a:visited {
+            color: white;
+
+        }
+
+        /*Propiedades para Listas
+
+        -list-style-type: estilo de lista
+        */
+        ul {
+            list-style-type: lower-greek;
+            /*
+            list-style-position: inside;
+            list-style-image: -webkit-gradient();*/
+
+
+        }
+
+        ol {
+            list-style: none;
+            /* Quita la numeración por defecto */
+            padding-left: 0;
+            /* Opcional: elimina sangría */
+        }
+
+        ol li::before {
+            content: "🙂👁️ ";
+            margin-right: 0.5em;
+        }
+        hr{
+            background-color:;
+            
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <main>
+        <p>Esto es un parrafo con <br>
+            <a href="https://www.mc-mutual.com/"><img src="https://tinyurl.com/2hsnejdh" alt="imagemutua"
+                    width="200px">MC mutual</a>
+        </p>
+        <ul>
+            <li>elemento 1</li>
+            <li>elemento 2</li>
+            <li>elemento 3</li>
+        </ul>
+        <hr size="25">
+        <ol>
+            <li>apartado 1</li>
+            <li>apartado 2</li>
+            <li>apartado 3</li>
+        </ol>
+    </main>
+
+</body>
+
+</html>
