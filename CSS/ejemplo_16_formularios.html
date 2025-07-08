@@ -8,7 +8,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formularios</title>
 </head>
+<style>
+    /*algunas propiedades nuevas ( y valores)
+    -display: inline-block
+    -border-radius (CSS3): bordes redondeados
+    */
+    input[required]{
+        background-color: brown;
+    }
+    fieldset:nth-of-type(1) label/*esto es lo mismo que fieldset:first-of-type*/{
+        display: inline-block;
+        width: 100px;
+        text-align: right;
+        margin-right: 10px;
 
+    }
+    fieldset:nth-of-type(1) input{
+        display: inline-block;
+        margin-bottom: 20px;
+        
+        border-radius: 2px;
+    }
+
+    fieldset:nth-of-type(2) label{
+        display: inline-block;
+        width: 100px;
+        text-align: right;
+        margin-right: 10px;
+    }
+
+    fieldset:nth-of-type(2) input{
+        display: inline-block;
+        margin-bottom: 20px;
+        border-radius: 2px;
+    }
+    input::placeholder{
+        color: white;
+    }
+    input:focus{
+        background-color: lightgreen;
+        color: black;
+    }
+
+</style>
 <body>
     <!-- en el from es donde va el enctype="multipart/from-data"-->
     <form action="#" method="post">
@@ -17,7 +59,7 @@
             <!--El for va asociado con la id del input-->
             <!--El name es la variable-->
             <label for="usuario">Usuario: </label>
-            <input type="text" name="usuario" id="usuario" placeholder="usuario"><br>
+            <input type="text" name="usuario" id="usuario" placeholder="usuario" required='required'><br>
             <label for="clave">Contraseña:</label>
             <input type="password" name="clave" id="clave"><br>
             <label for="fechanac">Nacimiento:</label>
@@ -27,8 +69,8 @@
         <fieldset>
             <label for="codigopostal">Codigo Postal:</label>
             <input type="number" name="codigopostal" id="codigopostal" min="01000" max="52999"><br>
-            <label for="email">Correo Electronico:</label>
-            <input type="email" name="email" id="email" required><br>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required='required'><br>
             <label for="telefono">Teléfono:</label>
             <input type="tel" name="telefono" id="telefono">
 
