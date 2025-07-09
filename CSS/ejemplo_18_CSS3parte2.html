@@ -1,0 +1,65 @@
+<!--CSS3 parte 2 transiciones y animaciones-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3 parte 2</title>
+    <style>
+        /*
+        Tranformaciones y Transiciones(animaciones)
+        scale       ->
+
+        */
+        p{
+            margin: auto;
+            margin-top: 100px;
+            border: 1px solid blue;
+            width: 20%;
+            transform: scale(2);
+            /*
+            transform: rotate(10deg);
+            transform: skew(20deg);
+            */
+            transform: translate(200px , 300px);
+        }
+
+
+        p:hover{
+            transform: rotate(10deg);
+        }
+        button{
+            margin-top: 50px;
+            background-color: gold;
+            padding: 10px 20px;
+            box-shadow: 0px 4px 6px blue;
+            border-radius: 10px;
+            /*Propiedades de la transicion*/
+            background-color: 2s ease;
+            transform: 5s ease;
+            box-shadow: ease;
+
+        }
+        button:hover{
+
+            /*Valores finales*/
+            background-color: lightskyblue;
+            box-shadow: 5px 4px 6px darkblue;
+            transform: scaleX(3);
+            transform: translate(100px);
+            /*Propiedades de la transicion*/
+            transition-property: background-color,transform,box-shadow;
+            transition-duration: 5s ;
+            transition-timing-function: ease;
+        }
+        
+
+    </style>
+</head>
+
+<body>
+    <p>Has ganado 1000€ pulsa aqui <a href="www.google.es" >link</a></p>
+    <button>Pulsa para ver la animacion</button>
+</body>
+</html>

@@ -1,5 +1,7 @@
 > **Tip:** Mantén el CSS en archivos externos para mejorar mantenimiento y caché del navegador.
 
+> Luz noctura configurar y activar si ves que los colores se trastocan
+
 ---
 
 ## 2. Selectores básicos y buenas prácticas
