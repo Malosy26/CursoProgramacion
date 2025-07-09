@@ -1,0 +1,66 @@
+<!--ejemplo19 CSS3-->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+    <style>
+        /*Flexbox
+        display:flex    -> flexible
+        :nth-child      -> hijo n de contenedor
+        :nth-of-type    -> n tipo del elemento   
+
+        */
+
+        /*primero de su tipo para cada contenedors*/
+        p:nth-of-type(1) {
+            background-color: red;
+        }
+
+        main p:nth-child(1) {
+            background-color: blue;
+
+        }
+        footer{
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            
+        }
+      
+        footer p{
+            display: flex;
+            border: 1px solid black;
+            padding: 5px;
+            align-items: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <p>Parrafo cabecera</p>
+    </header>
+    <main>
+        <h1>Titulo</h1>
+        <p>Parrafo 1</p>
+        <p>Parrafo 2</p>
+        <p>Parrafo 3</p>
+        <p>Parrafo 4</p>
+    </main>
+    <footer>
+        <p>Parrafo 1</p>
+        <p>Parrafo 2 <br>segunda linea</p>
+        <p>Parrafo 3</p>
+        <p>Parrafo 4</p>
+
+    </footer>
+
+
+</body>
+
+</html>
