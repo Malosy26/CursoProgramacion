@@ -1,0 +1,91 @@
+<!--Ejemplo 04 imagenesSliders-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImagenesSlider</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="bootstrap.bundle.min.js"></script>
+    <style>
+        /* 
+      
+            */
+        h5{
+            font-size: 60px;
+            color: black;
+        }
+        figcaption p{
+            font-size: 60px;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="container text-center bg-info border p-3 m-3">
+        <figure>
+            <img src="Img/Dwayne_Johnson.jpg" alt="la roca" class="img-fluid rounded">
+        </figure>
+        <figure>
+            <img src="Img/Dwayne_Johnson.jpg" alt="la roca" class="img-thumbnail w-50">
+        </figure>
+
+
+
+
+
+
+
+
+
+    </header>
+
+    <main id="carouselExampleCaptions" class="carousel slide w-25 ">
+        <section class="carousel-indicators" aria-label="Indicadores">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1">👽</button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2">👽</button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                aria-label="Slide 3">👽</button>
+        </section>
+        <section class="carousel-inner" aria-label="diapositivas">
+            <figure class="carousel-item active">
+                <img src="Img/The_Rock_2.jpg" class="d-block w-100" alt="roki1">
+                <figcaption class="carousel-caption d-none d-md-block">
+                    <h5>La pelota calva</h5>
+                    <p>Mas calvo mas mejor</p>
+                </figcaption>
+            </figure>
+            <figure class="carousel-item">
+                <img src="Img/GettyImages-2148331567-1.jpg" class="d-block w-100" alt="roki2">
+                <figcaption class="carousel-caption d-none d-md-block">
+                    <h5>La pelota calva 2</h5>
+                    <p>La calva electrica</p>
+                </figcaption>
+            </figure>
+            <figure class="carousel-item">
+                <img src="Img/Dwayne_Johnson.jpg" class="d-block w-100" alt="roki3">
+                <figcaption class="carousel-caption d-none d-md-block">
+                    <h5>La calvachasca</h5>
+                    <p>Mas calva que musculo</p>
+                </figcaption>
+            </figure>
+        </section>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
+    </main>
+
+</body>
+
+</html>
