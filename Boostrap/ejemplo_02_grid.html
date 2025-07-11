@@ -1,6 +1,7 @@
 <!--Ejemplo 02 grid-->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,8 +14,32 @@
             background-color: red;
         }
             **/
+
+        /* La clase de BS bg-primary equivale a esto: */
+        /* Para personalizar BS hay que usar SASS */
+        .bg-primary {
+            background-color: blue;
+        }
+
+        p {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        /* Al ser un selector mas especifico esto
+        sobreescribe el bg-primary del main */
+        main section:first-child {
+            background-color: brown;
+        }
+
+        /* Clases BS del ejemplo: 
+        - row -> Fila 
+        - col -> Columna 
+            - col-6 -> Ancho columna 6 unid 
+            - col-md-6 -> Pantalla medias */
     </style>
+
 </head>
+
 <body>
     <main class="container text-center bg-primary-subtle">
         <section aria-label="fila1" class="row">
@@ -29,7 +54,7 @@
             </article>
         </section>
     </main>
-     <aside class="container text-center bg-primary">
+    <aside class="container text-center bg-primary">
         <section aria-label="fila1" class="row">
             <article aria-label="c1" class="border col-lg-6 col-6">
                 <p>Párrafo 4</p>
@@ -43,4 +68,5 @@
         </section>
     </aside>
 </body>
+
 </html>

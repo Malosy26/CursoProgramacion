@@ -1,8 +1,0 @@
-Comandos Git
-
--Cmd 	->	consola de comandos
--clear	->	limpiar la consola 
--pwd	->	ver el directorio
--dir	->	ver el contenido del directorio
--mkdir	->	crear directorio
--ls -a	->	ver todos los archivos y los archivos ocultosg
