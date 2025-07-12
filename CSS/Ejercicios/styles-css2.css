@@ -70,8 +70,18 @@ nav ul li a:hover {
 footer{
     margin-left: 210px;
 }
+/*Tabla*/
 
-table {
+/*entiendo que la leyenda de la tabla es esta siguiente
+*/
+
+section[aria-label="seccion1"] h2{
+    background: linear-gradient(to top, aqua, beige);
+    font-weight: bold;
+
+}
+
+section[aria-label="seccion1"] table {
     border: 2px solid aquamarine; /* Borde cuadrado que enmarca toda la tabla */
     border-collapse: collapse;    /* Para que los bordes se unan */
     width: 100%;
@@ -79,7 +89,7 @@ table {
 }
 
 /* Leyenda (caption) centrada y en negrita */
-caption {
+section[aria-label="seccion1"] caption {
     caption-side: top;
     font-weight: bold;
     font-size: 1.8em;
@@ -88,31 +98,38 @@ caption {
 }
 
 
-thead {
+section[aria-label="seccion1"] thead {
      background: linear-gradient(to bottom, aqua, beige);
      color: rgba(25, 37, 37, 0.865); /* beige con azul sin ser negro*/
 }
 
 /* Celdas de encabezado con borde */
-th {
+section[aria-label="seccion1"] th {
     border: 1px solid aquamarine;
     padding: 10px;
 }
 
 /* Celdas del cuerpo con fondo beige y borde */
-tbody tr {
+section[aria-label="seccion1"] tbody tr {
     background-color: #F5F5DC; /* Beige claro */
 }
 
-tbody td {
+section[aria-label="seccion1"] tbody td {
     border: 1px solid aquamarine;
     padding: 10px;
     text-align: center;
 }
 
 /* Opcional: filas alternas un poco más claras para mejor lectura */
-tbody tr:nth-child(even) {
+section[aria-label="seccion1"] tbody tr:nth-child(even) {
     background-color: #FAFAD2; /* Beige más claro */
 }
+
+footer{
+     background: linear-gradient(to top, aqua, beige);
+     font-size: 10px;
+     text-align: right;
+}
+
 
  
