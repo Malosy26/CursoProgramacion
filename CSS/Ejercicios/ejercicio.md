@@ -39,3 +39,6 @@ La tarea es escribir el código CSS con reglas css2 siguiendo las siguientes pau
 El directorio _plantilla_ contiene los archivos plantilla para que los alumnos descarguen y trabajen.
 
 En el directorio _entregas_ los alumnos crearán un directorio con su nombre para subir sus archivos.
+
+pull request
+https://github.com/jmpinero-avante/avante-ifcd0112-20250623/pull/3
