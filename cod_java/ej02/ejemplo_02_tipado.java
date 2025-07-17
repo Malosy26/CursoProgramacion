@@ -9,6 +9,8 @@ public class ejemplo_02_tipado {
         char letra;
         letra = 'I';
         int numeroEntero = 10;
+        float numDecimal= 9.6f;
+        
 
         System.out.println("Genero es : " + genero);
         System.out.println("Mi letra es: " + letra);
