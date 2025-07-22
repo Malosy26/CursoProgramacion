@@ -144,6 +144,15 @@ main section ol ol ol li {
 
 /* --------------------------------------------------- */
 /* ------- TABLA MAIN ------- */
+/*27.*/
+main table caption{
+    caption-side: top;
+}
+main table caption:hover{
+    box-shadow: 2px 2px 2px 2px darkgray;
+
+
+}
 
 
 tabale th, table td{
