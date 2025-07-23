@@ -1,8 +1,8 @@
 /* GENERALES */
 /* ------- Lateal Izquierdo ------- */
 /*03.*/
-body > aside{
-    background: linear-gradient(to right,lightgray,white);
+body>aside {
+    background: linear-gradient(to right, lightgray, white);
     /*04.*/
     position: absolute;
     width: 20%;
@@ -10,88 +10,101 @@ body > aside{
     left: 2%;
 
 }
+
 /*05.*/
-body > aside > figure > img{
+body>aside>figure>img {
     width: 100%;
     margin-bottom: 10px;
 }
+
 /*06.*/
-body > aside > ul {
+body>aside>ul {
     list-style: none;
     line-height: 1.125em;
     font-size: 0.8em;
     margin-left: -10px;
     color: blue;
 }
+
 /*07.*/
-body > aside > ul > li:first-of-type{
+body>aside>ul>li:first-of-type {
     text-shadow: blue 1px 1px 1px;
 }
+
 /*08.*/
 /* body > aside > ul > :not(li:nth-of-type(1))*/
-body > aside > ul > li + li {
+body>aside>ul>li+li {
     text-indent: 10px;
 }
 
 /*09.*/
-body > aside h2{
-    color: rgb(30%,30%,30%);
+body>aside h2 {
+    color: rgb(30%, 30%, 30%);
     font-size: 1.1em;
     margin-left: 10px;
     font-variant: small-caps;
 }
+
 /* --------------------------------------------------- */
 /* ------- PRINCIPAL ------- */
 /*02.*/
 body {
     font-family: 'Montserrat';
 }
+
 /*10.*/
-main{
+main {
     background-color: white;
     position: absolute;
     width: 70%;
     top: 2%;
     left: 25%;
 }
+
 /*11.*/
-main > header{
-    background: radial-gradient(ellipse at top, lightgray,white);
+main>header {
+    background: radial-gradient(ellipse at top, lightgray, white);
     overflow: hidden;
 }
+
 /*12.*/
-main > header ul{
-    float:left;
+main>header ul {
+    float: left;
     width: 40%;
     padding: 10px;
 }
+
 /*13.*/
-main > header ul li{
+main>header ul li {
     list-style: none;
     display: inline;
 }
 
 /*14.*/
-main > header > form{
+main>header>form {
     width: 50%;
-    float: left; 
+    float: left;
 
 }
+
 /*15 y 16.*/
-main > header form{
+main>header form {
     margin-top: 15px;
 }
+
 /*17.*/
-main > header form  input[type="submit"]{
+main>header form input[type="submit"] {
     border: 1px solid blue;
     margin-left: 5px;
 }
+
 /*18*/
-main section figure img{
+main section figure img {
     width: 90%;
 }
+
 /*19.*/
-main section figure img:hover{
+main section figure img:hover {
     visibility: hidden;
 }
 
@@ -100,18 +113,19 @@ main section figure img:hover{
 /* --------------------------------------------------- */
 /* ------- SECCIÓN PRINCIPAL ------- */
 /*20 nos los saltamos*/
-main section{
+main section {
     width: 60%;
     float: left;
 }
 
 /*21.*/
-main aside{
+main aside {
     float: right;
     width: 35%;
 }
+
 /*22.*/
-main section p{
+main section p {
     font-size: 0.9em;
     line-height: 1.4em;
     padding-right: 20px;
@@ -124,43 +138,140 @@ main section p{
 /* --------------------------------------------------- */
 /* ------- LISTA MAIN ------- */
 /*23.*/
-main section > ol{
-    background: linear-gradient(to bottom, lightgray,white);
+main section>ol {
+    background: linear-gradient(to bottom, lightgray, white);
     font-size: 0.8em;
     width: 70%;
     margin: auto;
-    
+
 }
-main section ol{
+
+main section ol {
     list-style: none;
 }
+
 /*24.*/
 main section ol ol ol li {
     font-weight: bold;
 
 }
-/*25.*/
-/*26.*/
+
+/*25. nos los saltamos*/
+
+/*26. nos lo saltamos*/
 
 /* --------------------------------------------------- */
 /* ------- TABLA MAIN ------- */
 /*27.*/
-main table caption{
+main section table caption {
     caption-side: top;
 }
-main table caption:hover{
+
+main section table caption:hover {
     box-shadow: 2px 2px 2px 2px darkgray;
 
 
 }
 
-
-tabale th, table td{
-    border: 2px solid gray;
+/*28.*/
+main section table caption {
+    font-size: 0.85em;
 }
+
+/*29.*/
+main section table:active {
+    width: 120%;
+    margin: 40px 0px;
+}
+
+/*30.*/
+main section table th,
+main section table td {
+    border: 2px solid lightgray;
+
+}
+/*.31*/
+
+main section table th,
+main section table td {
+    padding: 6px;
+
+}
+
+/*.32*/
+main section table td[rowspan]{
+    color: red;
+}
+
+
+
+
+/*
+table th,
+table td {
+    border: 2px solid gray;
+}*/
+
+
+
 
 /* --------------------------------------------------- */
 /* ------- TABLA LATERAL --------*/
+/*.33*/
+main aside h2{
+    margin-top: 20px;
+    font-variant: small-caps;
+    font-size: 3em;
+    padding: 15px;
+    /*
+    border-top-color: lightgray;
+    border-bottom-color: lightgray;
+    border-right-color: darkgray;
+    border-left-color: darkgrey;
+    */
+    border-color: lightgray,darkgray,lightgray,darkgray;
+    border-style: double;
+    border-width: 5px;
+}
+/*.34*/
+main aside h2{
+    border-radius: 10px/40px;
+}
+/*.35*/
+main aside table p{
+    background-image: url(Picto_infobox_map.png);
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 60px;
+}
+/*36*/
+main aside table caption{
+
+    width: 240px;
+    height: 100px;
+    overflow: scroll;
+    background: linear-gradient(to right, lightgray,white);
+
+}
 
 /* --------------------------------------------------- */
 /* ------- PIE DE PÁGINA --------*/
+/*37*/
+body > footer {
+    position: absolute;
+    margin: 20px 0px;
+    left:40%;
+    top: 145%;
+    font-size: 1em;
+    
+
+}
+/*38*/
+body > footer:active{
+    transition-property: width, font-size;
+    transition-duration: 5s;
+    transition-timing-function: ease-out;
+    width: 100%;
+    font-size: 1.5em;
+}
+
