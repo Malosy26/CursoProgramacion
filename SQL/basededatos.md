@@ -1,5 +1,6 @@
-# Apuntes modulo base de datos
+## Apuntes modulo base de datos
 https://chat.mistral.ai/
+https://pinokio.co/
 >Soy el número 4
 Contraseña para ebook
 
@@ -216,5 +217,91 @@ El diagrama muestra las relaciones entre varias entidades, centrándonos en las 
 ![Diagrama de Relaciones](img/esquemavehiculo.png)
 
 Este diagrama ayuda a visualizar cómo se relacionan las entidades y cómo se estructuran los datos en una base de datos relacional.
+
+
+## Entidades Fuertes y Débiles en el Diagrama de Relación-Entidad
+
+En el contexto de los Diagramas de Relación-Entidad (ER), las entidades se clasifican en fuertes y débiles según su dependencia de otras entidades.
+
+### Entidades Fuertes
+
+Una **entidad fuerte** es aquella que puede existir de manera independiente y no depende de ninguna otra entidad para su identificación. Estas entidades tienen un identificador único o clave primaria que las distingue de otras entidades del mismo tipo.
+
+| Características de las entidades fuertes |
+|-----------------------------------------|
+| Existen de manera independiente. |
+| Tienen una clave primaria que las identifica de manera única. |
+| No dependen de otras entidades para su existencia. |
+
+| Ejemplo de entidad fuerte |
+|---------------------------|
+| **Estudiante**: Un estudiante puede existir en una base de datos sin necesidad de estar asociado a ninguna otra entidad. Cada estudiante tiene un identificador único, como un número de matrícula. |
+
+### Entidades Débiles
+
+Una **entidad débil** es aquella que no puede existir sin una entidad fuerte. Estas entidades no tienen una clave primaria propia y dependen de una entidad fuerte para su identificación. La clave primaria de una entidad débil se forma combinando su clave parcial con la clave primaria de la entidad fuerte de la que depende.
+
+| Características de las entidades débiles |
+|-----------------------------------------|
+| No pueden existir de manera independiente. |
+| No tienen una clave primaria propia. |
+| Dependen de una entidad fuerte para su identificación. |
+
+| Ejemplo de entidad débil |
+|--------------------------|
+| **Dependiente**: Un dependiente (como un hijo o cónyuge) no puede existir en una base de datos sin estar asociado a un empleado (entidad fuerte). La identificación del dependiente depende del identificador del empleado. |
+
+### Relación entre Entidades Fuertes y Débiles
+
+En un Diagrama de Relación-Entidad, la relación entre una entidad fuerte y una entidad débil se representa mediante una línea doble en el rombo que conecta las dos entidades. Esta línea doble indica que la entidad débil depende de la entidad fuerte para su existencia.
+
+| Ejemplo de relación |
+|---------------------|
+| **Empleado (Entidad Fuerte)** y **Dependiente (Entidad Débil)**: La relación entre estas dos entidades se representa con una línea doble en el rombo que las conecta, indicando que el dependiente no puede existir sin el empleado. |
+
+### Conclusión
+
+Comprender la diferencia entre entidades fuertes y débiles es fundamental para diseñar bases de datos eficientes y bien estructuradas. Las entidades fuertes proporcionan la base independiente necesaria, mientras que las entidades débiles permiten modelar relaciones complejas y dependientes en el sistema.
+
+# Diagrama de Flujo de Tipos de Vehículos
+
+El diagrama que has compartido es un diagrama de flujo que representa diferentes opciones de transporte. Aquí está la explicación de cada elemento y su relación:
+
+1. **Bastidor y Matrícula**: Estos son los puntos de inicio del diagrama. Representan los componentes básicos necesarios para cualquier vehículo.
+
+2. **Vehículo**: Este es el punto central del diagrama. Representa el vehículo en sí, que puede ser de varios tipos.
+
+3. **Tipos de Vehículo**: Desde el punto central "Vehículo", el diagrama se ramifica en cinco tipos diferentes de vehículos:
+   - **Coche**: Un tipo común de vehículo de pasajeros.
+   - **MicroBus**: Un vehículo más grande que un coche, pero más pequeño que un autobús.
+   - **Autobuses**: Vehículos grandes diseñados para transportar a muchas personas.
+   - **Motocicletas**: Vehículos de dos ruedas.
+   - **Tractor**: Vehículo utilizado principalmente para tareas agrícolas.
+
+4. **Símbolo de Decisión (Círculo)**: El círculo en el diagrama representa un punto de decisión. Indica que hay una elección exclusiva entre los diferentes tipos de vehículos. Esto significa que un vehículo puede ser solo uno de estos tipos a la vez, no una combinación de ellos.
+
+![image](img/esquemarelacion.png)
+
+## Restricciones
+
+### Restricciones de Integridad
+Las restricciones de integridad aseguran que los datos en un sistema sean precisos y consistentes. En el contexto de este diagrama, una restricción de integridad podría ser que cada vehículo debe tener un identificador único (como una matrícula) y que no se pueden tener duplicados.
+
+### Restricciones Inherentes
+Las restricciones inherentes son aquellas que vienen dadas por la naturaleza del sistema o del dominio. Por ejemplo, un vehículo no puede ser a la vez un "Coche" y un "Tractor". Estas restricciones están implícitas en la estructura del diagrama y en la lógica del dominio que representa.
+
+### Restricciones Explícitas
+Las restricciones explícitas son reglas definidas explícitamente por el diseñador del sistema. En este diagrama, una restricción explícita podría ser que un vehículo debe tener asignado un tipo específico de la lista proporcionada (Coche, MicroBus, Autobuses, Motocicletas, Tractor) y no puede operar sin esta clasificación.
+
+## Control de la redundancia
+
+En los esquemas Entidad-Relación (E-R) pueden aparecer relaciones redundantes que es aconsejable eliminar.
+
+En un esquema E-R puede haber una relación redundante si hay un ciclo. Un ciclo es una condición necesaria para la existencia de una relación redundante, pero esta condición no es suficiente. Esto significa que aunque exista un ciclo en un esquema E-R, puede no haber redundancias. Se debe considerar lo siguiente:
+
+- Las relaciones con atributos no se pueden eliminar, ya que no son redundantes.
+- Las relaciones débiles (dependencias en existencia o en identificación) tampoco se pueden eliminar.
+- Para que cualquier otra relación se pueda eliminar, su eliminación no debe suponer una pérdida de semántica. Es decir, la información que nos proporciona la relación debe poder obtenerse por medio de las relaciones que no se eliminan.
+
 
 
