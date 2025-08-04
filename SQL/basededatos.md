@@ -303,5 +303,100 @@ En un esquema E-R puede haber una relación redundante si hay un ciclo. Un ciclo
 - Las relaciones débiles (dependencias en existencia o en identificación) tampoco se pueden eliminar.
 - Para que cualquier otra relación se pueda eliminar, su eliminación no debe suponer una pérdida de semántica. Es decir, la información que nos proporciona la relación debe poder obtenerse por medio de las relaciones que no se eliminan.
 
+## Normalización de Bases de Datos Relacionales
+
+La normalización es un proceso utilizado para organizar una base de datos en tablas y columnas. El principal objetivo de la normalización es minimizar la redundancia y evitar anomalías en la manipulación de datos.
+
+## Primera Forma Normal (1FN)
+
+- **Definición:** Una tabla está en 1FN si todos los atributos contienen valores atómicos, es decir, cada columna contiene solo un valor único en cada fila.
+- **Requisitos:**
+  - Eliminar grupos repetitivos y arrays.
+  - Crear una tabla separada para cada conjunto de datos relacionados.
+  - Identificar cada conjunto de datos relacionados con una clave primaria.
+- **Objetivo:** Asegurar que cada columna de una tabla contenga solo valores indivisibles.
+
+### Ejemplo de 1FN
+
+**Tabla no normalizada:**
+
+| ID | Nombre | Teléfonos |
+|----|--------|-----------|
+| 1 | Ana | 123456789, 987654321 |
+| 2 | Luis | 456789123 |
+
+**Tabla en 1FN:**
+
+| ID | Nombre | Teléfono |
+|----|--------|----------|
+| 1 | Ana | 123456789 |
+| 1 | Ana | 987654321 |
+| 2 | Luis | 456789123 |
+
+## Segunda Forma Normal (2FN)
+
+- **Definición:** Una tabla está en 2FN si está en 1FN y todos los atributos no clave son completamente dependientes de la clave primaria. Esto significa que no debe haber dependencias parciales.
+- **Requisitos:**
+  - La tabla debe estar en 1FN.
+  - Eliminar dependencias parciales: si un atributo depende solo de una parte de una clave primaria compuesta, se debe mover a una tabla separada.
+- **Objetivo:** Eliminar la redundancia de datos asegurando que cada atributo en una tabla dependa de toda la clave primaria.
+
+### Ejemplo de 2FN
+
+**Tabla en 1FN pero no en 2FN:**
+
+| ID | ID_Producto | Nombre_Producto | Cantidad | Precio_Producto |
+|----|-------------|-----------------|----------|-----------------|
+| 1 | P1 | Producto A | 10 | 100 |
+| 2 | P1 | Producto A | 5 | 100 |
+
+**Tablas en 2FN:**
+
+**Productos:**
+
+| ID_Producto | Nombre_Producto | Precio_Producto |
+|-------------|-----------------|-----------------|
+| P1 | Producto A | 100 |
+
+**Inventario:**
+
+| ID | ID_Producto | Cantidad |
+|----|-------------|----------|
+| 1 | P1 | 10 |
+| 2 | P1 | 5 |
+
+
+
+
+## Tercera Forma Normal (3FN)
+
+- **Definición:** Una tabla está en 3FN si está en 2FN y no hay dependencias transitivas. Esto significa que los atributos no clave no deben depender de otros atributos no clave.
+- **Requisitos:**
+  - La tabla debe estar en 2FN.
+  - Eliminar dependencias transitivas: si un atributo no clave depende de otro atributo no clave, se debe mover a una tabla separada.
+- **Objetivo:** Eliminar la redundancia de datos asegurando que los atributos no clave dependan solo de la clave primaria.
+
+### Ejemplo de 3FN
+
+**Tabla en 2FN pero no en 3FN:**
+
+**Órdenes:**
+ | ID_Orden | ID_Producto | Cantidad | Precio_Producto | Total |
+ |----------|-------------|----------|-----------------|-------|
+ | 1 | P1 | 2 | 100 | 200 |
+
+**Tablas en 3FN:**
+
+**Productos:**
+ | ID_Producto | Precio_Producto |
+ |-------------|-----------------|
+ | P1 | 100 |
+
+**Órdenes:**
+ | ID_Orden | ID_Producto | Cantidad | Total |
+ |----------|-------------|----------|-------|
+ | 1 | P1 | 2 | 200 |
+
+
 
 
