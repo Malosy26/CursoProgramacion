@@ -1,0 +1,84 @@
+{
+    // Use IntelliSense para saber los atributos posibles.
+    // Mantenga el puntero para ver las descripciones de los existentes atributos.
+    // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "ejemplo_01_holamundo",
+            "request": "launch",
+            "mainClass": "codJava.ej01.ejemplo_01_holamundo",
+            "projectName": "CursoProgramacion_b7474d8c"
+        },
+        {
+            "type": "java",
+            "name": "ejemplo_02_tipado",
+            "request": "launch",
+            "mainClass": "codJava.ej02.ejemplo_02_tipado",
+            "projectName": "CursoProgramacion_b7474d8c"
+        },
+        {
+            "type": "java",
+            "name": "ejemplo_03_referencia",
+            "request": "launch",
+            "mainClass": "codJava.ej03.ejemplo_03_referencia",
+            "projectName": "CursoProgramacion_b7474d8c"
+        },
+        {
+            "type": "java",
+            "name": "ejemplo_04_aritmeticos",
+            "request": "launch",
+            "mainClass": "codJava.ej04.ejemplo_04_aritmeticos",
+            "projectName": "CursoProgramacion_b7474d8c"
+        },
+        {
+            "type": "java",
+            "name": "ejemplo_05_asignacion",
+            "request": "launch",
+            "mainClass": "codJava.ej05.ejemplo_05_asignacion",
+            "projectName": "CursoProgramacion_b7474d8c"
+        },
+        {
+            "type": "java",
+            "name": "ejemplo_06_otrosOperadores",
+            "request": "launch",
+            "mainClass": "codJava.ej06.ejemplo_06_otrosOperadores",
+            "projectName": "CursoProgramacion_b7474d8c"
+        },
+        {
+            "type": "java",
+            "name": "ejemplo_07_logicos",
+            "request": "launch",
+            "mainClass": "codJava.ej07.ejemplo_07_logicos",
+            "projectName": "CursoProgramacion_b7474d8c"
+        },
+        {
+            "type": "java",
+            "name": "ejemplo_08_condicionales_if",
+            "request": "launch",
+            "mainClass": "codJava.ej08.ejemplo_08_condicionales_if",
+            "projectName": "CursoProgramacion_b7474d8c"
+        },
+        {
+            "type": "java",
+            "name": "ejemplo_09_condicional_switch",
+            "request": "launch",
+            "mainClass": "codJava.ej09.ejemplo_09_condicional_switch",
+            "projectName": "CursoProgramacion_b7474d8c"
+        },
+        {
+            "type": "java",
+            "name": "main",
+            "request": "launch",
+            "mainClass": "codJava.main",
+            "projectName": "CursoProgramacion_b7474d8c"
+        }
+    ]
+}

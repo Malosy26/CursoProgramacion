@@ -70,4 +70,29 @@ public class pseudocod1 {
         return new int[] { positivos, totalNumeros };
     }
 
+    public static void calculaFactorial(Integer n) {
+    long resultado = 1; // Usamos long para manejar números grandes
+
+    // Validación para números negativos
+    if (n < 0) {
+        System.out.println("No se puede calcular el factorial de un número negativo.");
+        return;
+    }
+
+    // Caso especial para 0! = 1
+    if (n == 0) {
+        System.out.println("El factorial de 0 es: 1");
+        return;
+    }
+
+    // Bucle para calcular el factorial
+    for (Integer i = 1; i <= n; i++) {
+        resultado *= i;
+    }
+
+    // Imprimir el resultado
+    System.out.println("El factorial de " + n + " es: " + resultado);  
+    }
+
 }
+

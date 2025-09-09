@@ -1,13 +1,7 @@
-package codJava;
 import java.util.Scanner;
-
-import codJava.pseudocod.pseudocod1;
-
+import pseudocod.pseudocod1;
 public class main {
     public static void main(String[] args) {
-        /*
-         * ----------------------- PSEUDOCODIGO1------------------------------
-         */
         System.out.println("Resultado del pseudocodigo1");
         Scanner scanner = new Scanner(System.in);
         boolean accesoConcedido = false;
@@ -24,48 +18,22 @@ public class main {
         if (!accesoConcedido) {
             System.out.println("Acceso denegado: se han agotado los intentos.");
         }
-        /*
-         * -----------------------FIN DE PSEUDOCODIGO1------------------------------
-         */
 
-        /*
-         * ----------------------- PSEUDOCODIGO2------------------------------
-         */
         System.out.println("--------------------------------");
         System.out.println("Resultado del pseudocodigo2");
         int resultado = pseudocod1.lecturaNumeros(5, 9, 2);
         System.out.println("El número mayor es: " + resultado);
-        /*
-         * -----------------------FIN PSEUDOCODIGO2------------------------------
-         */
 
-        /*
-         * ----------------------- PSEUDOCODIGO4------------------------------
-         */
         System.out.println("--------------------------------");
-        System.out.println("Introduce números enteros (escribe 'FIN' para terminar):");
-        int[] resultados = pseudocod1.contarNumerosPositivosYTotal();
+        int[] resultados = pseudocod1.contarNumerosPositivosYTotal(scanner);
         System.out.println("Total de números positivos: " + resultados[0]);
         System.out.println("Total de números ingresados: " + resultados[1]);
-        /*
-         * -----------------------FIN DE PSEUDOCODIGO4------------------------------
-         */
 
-        /*
-         * ----------------------- PSEUDOCODIGO5------------------------------
-         */
         Integer n = 5;
         pseudocod1.tablaMultiplicar(n);
-        /*
-         * -----------------------FIN DE PSEUDOCODIGO5------------------------------
-         */
 
-        /*
-         * -----------------------PSEUDOCODIGO6------------------------------
-         */
         pseudocod1.calculaFactorial(5);
-        /*
-         * -----------------------FIN DE PSEUDOCODIGO6------------------------------
-         */
+
+        scanner.close();
     }
 }
