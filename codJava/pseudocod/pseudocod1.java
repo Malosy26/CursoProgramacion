@@ -1,41 +1,73 @@
 package codJava.pseudocod;
 
+import java.util.Scanner;
+
 public class pseudocod1 {
+    private static int intentos = 0;
+    private static final int MAX_INTENTOS = 3;
 
-    // Declaración de la función para validar el PIN
-    public static boolean pseudocodigo1(Integer pin) {
-        Integer PIN = 1234;
-        boolean t = pin.equals(PIN); // Usar equals() para comparar objetos Integer
-        return t;
+    public static boolean pseudocodigo1(int pin) {
+        if (intentos >= MAX_INTENTOS) {
+            System.out.println("Acceso bloqueado: se han agotado los intentos.");
+            return false;
+        }
+
+        boolean accesoConcedido = pin == 1235;
+        if (!accesoConcedido) {
+            intentos++;
+            System.out.println("PIN incorrecto. Intentos restantes: " + (MAX_INTENTOS - intentos));
+        } else {
+            intentos = 0; // Reiniciar los intentos si el PIN es correcto
+        }
+
+        return accesoConcedido;
     }
-    public static Integer lecturaNumeros(Integer n1, Integer n2, Integer n3) {
-    Integer mayor = n1; // Asumimos inicialmente que n1 es el mayor
 
-    if (n2 > mayor) {
-        mayor = n2; // Si n2 es mayor, actualizamos el valor
+    public static int lecturaNumeros(int a, int b, int c) {
+        int mayor = a;
+        if (b > mayor)
+            mayor = b;
+        if (c > mayor)
+            mayor = c;
+        return mayor;
     }
 
-    if (n3 > mayor) {
-        mayor = n3; // Si n3 es mayor, actualizamos el valor
+    public static int[] contarNumerosPositivosYTotal() {
+        Scanner scanner = new Scanner(System.in);
+        int positivos = 0; // Contador de números positivos
+        int totalNumeros = 0; // Contador de total de números ingresados
+
+        System.out.println("Introduce números enteros (escribe 'FIN' para terminar):");
+
+        // Mientras haya más entrada disponible en el Scanner
+        while (scanner.hasNext()) {
+            // Verifica si la siguiente entrada es un número entero
+            if (scanner.hasNextInt()) {
+                // Lee el siguiente número entero de la entrada
+                int numero = scanner.nextInt();
+                totalNumeros++; // Incrementa el contador de total de números
+
+                // Verifica si el número es positivo
+                if (numero > 0) {
+                    // Incrementa el contador de números positivos
+                    positivos++;
+                }
+            } else {
+                // Si la siguiente entrada no es un número entero, léela como una cadena de
+                // texto
+                String entrada = scanner.next();
+                // Verifica si la entrada es igual a "FIN" (ignora mayúsculas/minúsculas)
+                if (entrada.equalsIgnoreCase("FIN")) {
+                    // Si se ingresa "FIN", termina el bucle
+                    break;
+                }
+            }
+        }
+
+        scanner.close();
+        // Devuelve un arreglo con el total de números positivos y el total de números
+        // ingresados
+        return new int[] { positivos, totalNumeros };
     }
 
-    return mayor; // Devolvemos el número mayor
-    }
-
-
-    public static void main(String[] args) {
-        // Ejemplo de cómo llamar a la función
-        System.out.println("Resultado del pseudocodigo1");
-        boolean accesoConcedido = pseudocodigo1(1235);
-        System.out.println(accesoConcedido); // Imprimirá true si el PIN es correcto
-        System.out.println("-------------------------------");
-        System.out.println("Resultado del pseudocodigo2");
-        Integer resultado = lecturaNumeros(5, 9, 2);
-        System.out.println("El número mayor es: " + resultado);
-        
-    
-    
-    
-    
-    }
 }
