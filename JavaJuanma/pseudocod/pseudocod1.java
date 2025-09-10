@@ -1,6 +1,6 @@
 package pseudocod;
 
-import java.util.Scanner;
+
 
 public class pseudocod1 {
     public static boolean pseudocodigo1(int pin) {

@@ -9,6 +9,20 @@
             "name": "main",
             "request": "launch",
             "mainClass": "main",
+            "projectName": "CursoProgramacion_9bcc4d89"
+        },
+        {
+            "type": "java",
+            "name": "main",
+            "request": "launch",
+            "mainClass": "JavaJuanma.main",
+            "projectName": "CursoProgramacion_9bcc4d89"
+        },
+        {
+            "type": "java",
+            "name": "main",
+            "request": "launch",
+            "mainClass": "main",
             "projectName": "CursoProgramacion_b7474d8c"
         },
         {
