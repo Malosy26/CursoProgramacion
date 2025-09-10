@@ -34,6 +34,10 @@ public class main {
 
         pseudocod1.calculaFactorial(5);
 
+        String frase= "contar la frase";
+        System.out.println("EL tamaño de la frase sin contar espacios es  = "+frase.length());
+        System.out.println("La frase es : "+frase);
+        pseudocod1.contarCaracteres(frase);
         scanner.close();
     }
 }

@@ -1,5 +1,7 @@
 package pseudocod;
+
 import java.util.Scanner;
+
 public class pseudocod1 {
     public static boolean pseudocodigo1(int pin) {
         // Lógica para validar el PIN
@@ -9,8 +11,10 @@ public class pseudocod1 {
     // Otros métodos
     public static int lecturaNumeros(int a, int b, int c) {
         int mayor = a;
-        if (b > mayor) mayor = b;
-        if (c > mayor) mayor = c;
+        if (b > mayor)
+            mayor = b;
+        if (c > mayor)
+            mayor = c;
         return mayor;
     }
 
@@ -34,7 +38,7 @@ public class pseudocod1 {
                 }
             }
         }
-        return new int[]{positivos, totalNumeros};
+        return new int[] { positivos, totalNumeros };
     }
 
     public static void tablaMultiplicar(Integer n) {
@@ -62,4 +66,50 @@ public class pseudocod1 {
 
         System.out.println("El factorial de " + n + " es: " + resultado);
     }
-}
+
+    /**
+     * Método para contar letras, espacios, caracteres especiales y palabras en una
+     * frase.
+     * 
+     * @param frase La cadena de texto a analizar.
+     */
+    public static void contarCaracteres(String frase) {
+        // Contadores para cada tipo de carácter y palabras
+        int contadorLetras = 0; // Contador de letras (a-z, A-Z)
+        int contadorEspacios = 0; // Contador de espacios en blanco
+        int contadorEspecial = 0; // Contador de caracteres especiales (tabuladores, saltos de línea, puntuación,
+                                  // etc.)
+        int contadorPalabras = 0; // Contador de palabras
+
+        // Recorremos cada carácter de la frase
+        for (int i = 0; i < frase.length(); i++) {
+            char c = frase.charAt(i); // Obtenemos el carácter actual
+
+            // Si el carácter es un espacio, incrementamos el contador de espacios
+            if (c == ' ') {
+                contadorEspacios++;
+            }
+            // Si el carácter es una letra, incrementamos el contador de letras
+            else if (Character.isLetter(c)) {
+                contadorLetras++;
+                // Lógica para contar palabras:
+                // Si es el primer carácter de la frase o el carácter anterior es un espacio,
+                // significa que estamos al inicio de una nueva palabra
+                if (i == 0 || frase.charAt(i - 1) == ' ') {
+                    contadorPalabras++;
+                }
+            }
+            // Si no es ni espacio ni letra, es un carácter especial
+            else {
+                contadorEspecial++;
+            }
+        }
+
+        // Imprimimos los resultados
+        System.out.println("Letras: " + contadorLetras);
+        System.out.println("Espacios: " + contadorEspacios);
+        System.out.println("Caracteres especiales: " + contadorEspecial);
+        System.out.println("Palabras: " + contadorPalabras);
+    }
+
+}// fin de la clase de las funciones
