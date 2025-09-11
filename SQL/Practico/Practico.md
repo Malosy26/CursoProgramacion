@@ -5,6 +5,7 @@
 
 Primero apuntaremos las entidades que han sido identificadas:
 
+
 `Paquete turistico` 
 Es el producto principal de la agencia. Un paquete está compuesto por varios ítems.
 
@@ -61,97 +62,210 @@ Analizar la popularidad de destinos por país o ciudad.
 ## Fase 4: Creación de tablas
 
 ```sql
--- Creación de la tabla principal de paquetes
-CREATE TABLE paquetes (
+-- Se apunta al schema travel creado dentro de la database travelworks 
+-- asi nos aseguramos que no se creen en schema public
+SET search_path TO travel;
+
+
+-- Tabla principal de clientes
+CREATE TABLE Clientes (
+    cliente_id SERIAL PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    apellidos VARCHAR(255),
+    correo_elec VARCHAR(255) UNIQUE,
+    telefono VARCHAR(20)
+);
+
+-- Tabla principal de paquetes
+CREATE TABLE Paquete (
     paquete_id SERIAL PRIMARY KEY,
-    nombre_paquete VARCHAR(255) NOT NULL,
+    nombre VARCHAR(255) NOT NULL,
+    -- El coste total se calculará dinámicamente o con un trigger
     coste_total NUMERIC(10, 2) DEFAULT 0.00
 );
 
--- Creación de la tabla padre para los ítems
-CREATE TABLE items_paquete (
-    item_id SERIAL PRIMARY KEY,
-    paquete_id INT NOT NULL REFERENCES paquetes(paquete_id) ON DELETE CASCADE ON UPDATE CASCADE,
-    descripcion TEXT,
-    coste NUMERIC(10, 2) NOT NULL,
-    orden INT NOT NULL,
-    fecha DATE NOT NULL,
-    CONSTRAINT chk_orden CHECK (orden > 0)
-);
-
--- Creación de tablas hijas con herencia
-CREATE TABLE vuelos (
+-- Tabla de tipo de ítem: Vuelos
+CREATE TABLE Vuelo (
+    id_vuelo SERIAL PRIMARY KEY,
     aerolinea VARCHAR(100),
     origen VARCHAR(100),
-    destino VARCHAR(100)
-) INHERITS (items_paquete);
+    destino VARCHAR(100),
+    fecha_hora_salida TIMESTAMP NOT NULL
+);
 
-CREATE TABLE hoteles (
-    nombre_hotel VARCHAR(255),
+-- Tabla de tipo de ítem: Hoteles
+CREATE TABLE Hotel (
+    id_hotel SERIAL PRIMARY KEY,
+    nombre VARCHAR(255),
     ciudad VARCHAR(100),
     num_noches INT,
-    precio_por_noche NUMERIC(10, 2)
-) INHERITS (items_paquete);
+    precio_noche NUMERIC(10, 2)
+);
 
-CREATE TABLE atracciones (
-    nombre_atraccion VARCHAR(255),
+-- Tabla de tipo de ítem: Atracciones
+CREATE TABLE Atracciones (
+    id_atracciones SERIAL PRIMARY KEY,
+    nombre VARCHAR(255),
     ciudad VARCHAR(100),
     duracion_estimada_min INT
-) INHERITS (items_paquete);
-
--- Creación de las tablas de Clientes y Reservas
-CREATE TABLE clientes (
-    cliente_id SERIAL PRIMARY KEY,
-    nombre VARCHAR(255) NOT NULL,
-    email VARCHAR(255) UNIQUE
 );
 
-CREATE TABLE reservas (
-    reserva_id SERIAL PRIMARY KEY,
-    paquete_id INT NOT NULL REFERENCES paquetes(paquete_id) ON DELETE RESTRICT,
-    cliente_id INT NOT NULL REFERENCES clientes(cliente_id) ON DELETE RESTRICT,
+-- Tabla intermedia para los ítems generales del paquete
+CREATE TABLE Item (
+    id_item SERIAL PRIMARY KEY,
+    paquete_id INT NOT NULL REFERENCES Paquete(paquete_id) ON DELETE CASCADE,
+    nombre VARCHAR(255) NOT NULL,
+    descripcion TEXT,
+    coste NUMERIC(10, 2) NOT NULL,
+    -- Aquí se añaden las claves foráneas a cada tipo de ítem, permitiendo valores nulos
+    id_vuelo INT REFERENCES Vuelo(id_vuelo) ON DELETE SET NULL,
+    id_hotel INT REFERENCES Hotel(id_hotel) ON DELETE SET NULL,
+    id_atracciones INT REFERENCES Atracciones(id_atracciones) ON DELETE SET NULL
+);
+
+-- Tabla intermedia para unir ítems con sus tipos específicos
+CREATE TABLE Item_vuelo (
+    id_item INT NOT NULL REFERENCES Item(id_item) ON DELETE CASCADE,
+    id_vuelo INT NOT NULL REFERENCES Vuelo(id_vuelo) ON DELETE CASCADE,
+    PRIMARY KEY (id_item, id_vuelo)
+);
+
+-- Tabla intermedia para unir ítems con sus tipos específicos
+CREATE TABLE Item_hotel (
+    id_item INT NOT NULL REFERENCES Item(id_item) ON DELETE CASCADE,
+    id_hotel INT NOT NULL REFERENCES Hotel(id_hotel) ON DELETE CASCADE,
+    PRIMARY KEY (id_item, id_hotel)
+);
+
+-- Tabla intermedia para unir ítems con sus tipos específicos
+CREATE TABLE Item_atracciones (
+    id_item INT NOT NULL REFERENCES Item(id_item) ON DELETE CASCADE,
+    id_atracciones INT NOT NULL REFERENCES Atracciones(id_atracciones) ON DELETE CASCADE,
+    PRIMARY KEY (id_item, id_atracciones)
+);
+
+-- Tabla de reservas
+CREATE TABLE Reserva (
+    id_reserva SERIAL PRIMARY KEY,
+    id_cliente INT NOT NULL REFERENCES Clientes(cliente_id) ON DELETE RESTRICT,
     fecha_reserva DATE NOT NULL DEFAULT CURRENT_DATE,
     num_personas INT NOT NULL,
-    coste_reserva NUMERIC(10, 2) NOT NULL,
-    CONSTRAINT chk_personas CHECK (num_personas > 0)
+    coste_reserva NUMERIC(10, 2) NOT NULL
+);
+
+-- Tabla intermedia para la relación muchos a muchos entre Paquete y Reserva
+CREATE TABLE Reserva_paquete (
+    id_reserva INT NOT NULL REFERENCES Reserva(id_reserva) ON DELETE CASCADE,
+    id_paquete INT NOT NULL REFERENCES Paquete(paquete_id) ON DELETE RESTRICT,
+    PRIMARY KEY (id_reserva, id_paquete)
 );
 ```
-QUITAR ESTO DESPUES DE HABLAR CON JUANMA
->Comentarios de diseño:
 
->INHERITS -> La necesidad de que al consultar que contiene un item de un paquete tener toda las informacion sin nesecidad de llamar a las demas tablas.
 
->En la tabla reservas  ON DELETE RESTRICT -> Esta desición se toma pensando en la sostenibilidad de la base de datos en un futuro y se tenga un registro de las reservas realizadas aunque los papuetes y/o los clientes ya no existan.
 
->El check de la fecha de la reserva se hace con la fecha actual por que se entiende que se introduzen los datos de la reserva justo al realizarla de no ser asi se han de introducir los datos pertinentes.
-
-### 📝 Comentarios de Diseño y Justificación Técnica
+---
+>Se decide no usar herencias para que la base de datos sea compatible para cualquier sistema además si, en el caso de haberlas utilizado, si tuvieramos que añadir mas tipos de item seria más complicado.
 
 ---
 
-### **Herencia con `INHERITS`**
-
-La elección de utilizar `INHERITS` para la relación entre `items_paquete` y sus tablas hijas (`vuelos`, `hoteles`, `atracciones`) es una decisión de diseño fundamental en PostgreSQL que modela la jerarquía de los elementos que componen un paquete. Esta aproximación ofrece varias ventajas clave:
-
-* **Consultas Simplificadas**: Permite la consulta de todos los ítems de un paquete de forma transparente y eficiente, sin necesidad de realizar `JOIN`s complejos. Una simple `SELECT *` a la tabla padre `items_paquete` devolverá automáticamente todos los registros de las tablas hijas, consolidando el itinerario completo del paquete.
-* **Organización Lógica**: Se alinea perfectamente con el concepto de que un `vuelo` o un `hotel` **es un** `item_paquete`, permitiendo que las tablas hijas hereden los atributos comunes (como `coste` y `descripcion`) y añadan sus campos específicos.
-* **Flexibilidad y Mantenimiento**: Facilita la futura expansión del modelo. Si la agencia decide añadir un nuevo tipo de ítem, como el alquiler de coches, solo se necesitaría crear una nueva tabla que herede de `items_paquete`, manteniendo el esquema organizado y escalable.
+### 📝 Comentarios de Diseño y Justificación Técnica del Modelo Normalizado
 
 ---
 
-### **Clave Foránea con `ON DELETE RESTRICT`**
+### **Estructura del Modelo y Normalización**
 
-La restricción `ON DELETE RESTRICT` en las claves foráneas de la tabla `reservas` es una medida crucial para asegurar la **integridad referencial** y la **sostenibilidad de los datos** a largo plazo.
-
-* **Protección de Datos Históricos**: Esta restricción previene la eliminación de un `paquete` o un `cliente` si existen `reservas` asociadas. Las reservas son registros de ventas vitales para el análisis de ingresos, la popularidad de los paquetes y el historial de los clientes, por lo que su protección es una prioridad.
-* **Evita Registros Huérfanos**: Garantiza que ninguna reserva pueda quedar sin un `paquete_id` o `cliente_id` de referencia, lo que resultaría en una base de datos inconsistente y con información sin sentido.
-* **Flujo de Trabajo Controlado**: Obliga a un proceso de eliminación consciente y manual. Para borrar un paquete, primero se deben eliminar todas sus reservas asociadas, lo que sirve como una medida de seguridad para evitar la pérdida accidental de información.
+Este diseño de base de datos adopta un enfoque **normalizado**, que es el estándar de la industria y la mejor práctica para garantizar la integridad y la portabilidad de los datos. A diferencia de la herencia de PostgreSQL, este modelo es compatible con cualquier sistema de gestión de bases de datos relacionales (RDBMS) como MySQL, Oracle o SQL Server. La clave de esta estructura es la separación de las entidades principales (`Vuelo`, `Hotel`, `Atracciones`) y el uso de tablas intermedias (`Item`, `Reserva_paquete`) para gestionar las relaciones entre ellas.
 
 ---
 
-### **Restricción de Fecha en `RESERVAS`**
+### **Claves Foráneas y Reglas de Eliminación (`ON DELETE`)**
 
-La decisión de usar `DEFAULT CURRENT_DATE` para la columna `fecha_reserva` se basa en la suposición de que el registro de una reserva se realiza en el mismo momento en que se efectúa la compra.
+Las cláusulas `ON DELETE` en las claves foráneas son cruciales para definir el comportamiento del sistema cuando se intenta eliminar un registro de una tabla "padre" que tiene registros "hijos" relacionados.
 
-* **Automatización**: Esta configuración simplifica el proceso de inserción de datos, ya que el sistema asigna la fecha actual automáticamente, minimizando los errores de entrada manual y agilizando la gestión de reservas.
-* **Simplicidad y Adaptabilidad**: Proporciona un punto de partida práctico. Si en el futuro se necesitara una validación más estricta, como asegurar que las fechas no sean del pasado o de un futuro lejano, se podría complementar fácilmente con una restricción `CHECK` adicional.
+#### **1. `ON DELETE CASCADE`**
+
+Esta regla se utiliza en las tablas intermedias que representan relaciones de composición fuerte, donde el registro "hijo" no tiene sentido sin su registro "padre".
+
+* **En la tabla `Item`**: `REFERENCES Paquete(paquete_id) ON DELETE CASCADE`. Esto significa que si se elimina un `Paquete`, todos los `Items` asociados a ese paquete se eliminarán automáticamente. Esto es lógico, ya que un `ítem` como parte de un itinerario no puede existir si el `paquete` al que pertenece ha sido borrado.
+* **En las tablas `Item_vuelo`, `Item_hotel`, `Item_atracciones`**: `REFERENCES Item(id_item) ON DELETE CASCADE`. Si un `Item` general se borra, el registro en estas tablas intermedias también se elimina.
+
+#### **2. `ON DELETE RESTRICT`**
+
+Esta regla se aplica en relaciones críticas para la integridad del negocio, donde la eliminación de un registro padre podría llevar a la pérdida de información histórica y valiosa.
+
+* **En la tabla `Reserva`**: `REFERENCES Clientes(cliente_id) ON DELETE RESTRICT`. Se prohíbe la eliminación de un `Cliente` si tiene `Reservas` asociadas. Esto protege el historial de ventas y la facturación de cada cliente, que son datos vitales para el análisis de negocio.
+* **En la tabla `Reserva_paquete`**: `REFERENCES Paquete(paquete_id) ON DELETE RESTRICT`. Se impide la eliminación de un `Paquete` si existen `Reservas` asociadas a él a través de esta tabla intermedia. Esto garantiza que la información de las ventas no se pierda si un paquete se retira de la oferta.
+
+---
+
+### **Justificación Adicional de las Tablas Intermedias**
+
+* **Tabla `Reserva_paquete`**: Esta tabla resuelve la relación **muchos a muchos** entre `Reserva` y `Paquete`. Una reserva puede incluir múltiples paquetes (por ejemplo, una persona que reserva un paquete de viaje de ida y vuelta), y un paquete puede ser parte de muchas reservas. Esta tabla es esencial para registrar cada transacción de manera precisa.
+* **Tablas `Item`, `Item_vuelo`, etc.**: Este diseño, con una tabla `Item` genérica y tablas intermedias para cada tipo específico, evita la necesidad de usar una tabla con muchas columnas nulas (el "anti-patrón" de la "súper-tabla"). Esto mantiene la base de datos limpia, organizada y fácil de mantener.
+
+En resumen, la combinación de un diseño normalizado con las reglas de eliminación apropiadas (`CASCADE` para composición, `RESTRICT` para integridad histórica) crea un esquema robusto y coherente, listo para la gestión de datos a largo plazo.
+
+
+## FASE 5: INDICES y VISTAS
+### INDICES
+```sql
+-- Índice para búsquedas rápidas de clientes
+-- y sus reservas, mejorando las consultas de historial.
+CREATE INDEX idx_cliente_reservas ON Reserva(id_cliente);
+/*
+SELECT * FROM Reserva WHERE id_cliente = 123;
+En lugar de revisar toda la base de datos con este indice
+hacemos que se guarden en estructuras ARBOL para que sea mas facil su acceso
+recordar que:
+Consumen espacio extra en disco 
+porque la BD guarda estructuras internas (árboles B+ generalmente).
+*/
+
+-- Índice para búsquedas por fechas en las reservas, útil
+-- para análisis de temporada.
+CREATE INDEX idx_fecha_reserva ON Reserva(fecha_reserva);
+
+-- Índice para búsquedas eficientes de paquetes y sus ítems.
+-- Ayuda en las uniones entre 'Paquete' e 'Item'.
+CREATE INDEX idx_paquete_items ON Item(paquete_id);
+
+-- Índices para búsquedas geográficas, cruciales para los
+-- análisis por ciudad o destino.
+CREATE INDEX idx_destino_vuelo ON Vuelo(destino);
+CREATE INDEX idx_ciudad_hotel ON Hotel(ciudad);
+CREATE INDEX idx_ciudad_atraccion ON Atracciones(ciudad);
+
+-- Índice para optimizar las búsquedas de reservas por paquete.
+CREATE INDEX idx_paquete_reserva_paquete ON Reserva_paquete(id_paquete);
+
+```
+### VISTAS
+
+```sql
+-- Vista para el análisis de los paquetes más populares
+-- Muestra el número de reservas y el total de viajeros para cada paquete.
+CREATE VIEW paquetes_populares AS
+SELECT
+    p.nombre AS nombre_paquete,
+    COUNT(rp.id_reserva) AS num_reservas,
+    SUM(r.num_personas) AS total_viajeros
+FROM Paquete AS p
+JOIN Reserva_paquete AS rp ON p.paquete_id = rp.id_paquete
+JOIN Reserva AS r ON rp.id_reserva = r.id_reserva
+GROUP BY p.nombre
+ORDER BY num_reservas DESC;
+
+-- Vista para el análisis de los mejores clientes por facturación
+-- Muestra el gasto total de cada cliente.
+CREATE VIEW mejores_clientes_facturacion AS
+SELECT
+    c.nombre,
+    c.apellidos,
+    SUM(r.coste_reserva) AS facturacion_total
+FROM Clientes AS c
+JOIN Reserva AS r ON c.cliente_id = r.id_cliente
+GROUP BY c.nombre, c.apellidos
+ORDER BY facturacion_total DESC;
+
+
+```
