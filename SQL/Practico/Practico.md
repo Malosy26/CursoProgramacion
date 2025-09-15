@@ -638,6 +638,33 @@ ORDER BY
     pi.orden;
 ```
 
+#### Probar procedimiento(duplicar) y consulta para ver que lo realiza
+
+```sql
+SET search_path TO travel;
+
+CALL duplicar_paquete_por_nombre('Ruta histórica por Europa', 'Ruta histórica por Europa (copia)');
+
+SELECT
+    p.nombre AS nombre_paquete,
+    p.coste_total,
+    string_agg(i.nombre || ' (' || i.coste || '€)', ', ' ORDER BY pi.orden) AS items_del_paquete
+FROM
+    Paquete p
+JOIN
+    paquete_item pi ON p.paquete_id = pi.id_paquete
+JOIN
+    Item i ON pi.id_item = i.id_item
+WHERE
+    p.nombre = 'Ruta histórica por Europa'
+    OR p.nombre = 'Ruta histórica por Europa (copia)'
+GROUP BY
+    p.paquete_id, p.nombre, p.coste_total
+ORDER BY
+    p.nombre;
+```
+
+
 #### FASE 10 Documentar el diseño y justificar cada decisión técnica tomada
 
 
