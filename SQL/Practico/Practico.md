@@ -379,8 +379,6 @@ $$;
 #### Procedimiento de duplicar paquete
 
 ```sql
-
-
 SET search_path TO travel;
 
 CREATE OR REPLACE PROCEDURE duplicar_paquete_por_nombre(
@@ -393,34 +391,35 @@ DECLARE
     paquete_origen_id INT;
     nuevo_paquete_id_var INT;
 BEGIN
-    -- 1. Buscar el ID del paquete de origen a partir de su nombre.
+    -- Obtener el ID del paquete original
     SELECT paquete_id INTO paquete_origen_id
     FROM Paquete
     WHERE nombre = nombre_paquete_origen;
 
-    -- 2. Si el paquete de origen no existe, notificar y salir.
     IF paquete_origen_id IS NULL THEN
-        RAISE NOTICE 'Error: El paquete "%" no existe. No se puede duplicar.', nombre_paquete_origen;
-        RETURN;
+        RAISE EXCEPTION 'Error: El paquete "%" no existe. No se puede duplicar.', nombre_paquete_origen;
     END IF;
 
-    -- 3. Insertar el nuevo paquete y obtener su ID.
+    -- 1. Insertar el nuevo paquete
     INSERT INTO Paquete (nombre, coste_total)
     SELECT nuevo_nombre_paquete, coste_total
     FROM Paquete
     WHERE paquete_id = paquete_origen_id
     RETURNING paquete_id INTO nuevo_paquete_id_var;
 
-    -- 4. Copiar todas las relaciones de ítems a la nueva tabla intermedia.
-    -- Se insertan los IDs de los ítems del paquete original, asociados al ID del nuevo paquete.
+    -- 2. Insertar los ítems asociados al nuevo paquete
     INSERT INTO paquete_item (id_paquete, id_item, orden, fecha)
     SELECT nuevo_paquete_id_var, id_item, orden, fecha
     FROM paquete_item
     WHERE id_paquete = paquete_origen_id;
 
-    RAISE NOTICE 'Paquete "%" duplicado con éxito. Nuevo paquete ID: %', nombre_paquete_origen, nuevo_paquete_id_var;
+EXCEPTION
+    WHEN OTHERS THEN
+        RAISE NOTICE 'Error al duplicar el paquete: %', SQLERRM;
+        RAISE;
 END;
 $$;
+
 ```
 
 ###  Fase 8. Poblar las tablas con datos de ejemplo.
