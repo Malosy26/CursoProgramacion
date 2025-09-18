@@ -1,0 +1,93 @@
+SET search_path TO ejercicio2;
+
+
+/*
+
+1. Escribe una consulta SQL que devuelva el nombre del usuario, el título del libro y la
+fecha de inicio de todos los préstamos activos.
+
+Entiendo que los prestamos activos son los libros que no tienen fecha de devolucion
+por que aun no se han devuelto
+*/
+SELECT
+u.nombre				AS "NombreUsuario",
+l.titulo				AS "NombreLibro",
+p.fecha_inicio			AS "FechaInicialDePrestamo"
+FROM
+usuario 				AS u
+INNER JOIN
+prestamo 				AS p ON u.id_usuario = p.id_usuario
+INNER JOIN
+libro					AS l ON p.id_libro = l.id_libro
+WHERE
+p.fecha_devolucion IS NULL;
+----------------------- 2 forma  ------------------------------------------
+SELECT
+u.nombre				AS "NombreUsuario",
+l.titulo				AS "NombreLibro",
+p.fecha_inicio			AS "FechaInicialDePrestamo"
+FROM
+usuario 				AS u
+INNER JOIN
+prestamo 				AS p ON u.id_usuario = p.id_usuario
+INNER JOIN
+libro					AS l ON p.id_libro = l.id_libro
+WHERE
+p.estado = 'activo';
+
+/*
+2. Escribe una consulta SQL que muestre el nombre de los usuarios y la suma total de
+pagos realizados, pero solo aquellos que hayan pagado más de 5 € en total.
+*/
+
+
+SELECT
+u.nombre			AS "Nombre",
+SUM(p.importe)		AS "Pagos totales"
+FROM
+usuario				AS u
+INNER JOIN
+pago				AS p	ON u.id_usuario = p.id_usuario
+GROUP BY
+u.nombre
+HAVING 
+SUM(p.importe) > 5;
+
+
+/*
+3. Escribe una consulta SQL que devuelva los títulos y autores de los libros que nunca
+han sido prestados.
+Todos los libros tienen fecha de inicio de prestamo
+
+SELECT *
+FROM prestamo
+
+Todos los 4 basicamente han sido prestado 2 de ellos estan activos como en el 1 enunciado observamos
+*/
+SELECT
+l.titulo			AS "TituloLibro",
+l.autor				AS "AutorLibro"
+FROM
+libro				AS l
+INNER JOIN
+prestamo			AS p	ON l.id_libro = p.id_libro
+WHERE
+l.id_libro NOT IN(p.id_libro)
+
+/*
+4. Escribe una consulta SQL que muestre el usuario que ha realizado el mayor número
+de préstamos, junto con la cantidad de préstamos realizados.
+*/
+
+SELECT
+    u.nombre 					AS "NombreUsuario",
+    COUNT(p.id_prestamo) 		AS "CantidadDePrestamos"
+FROM
+    usuario 					AS u
+INNER JOIN
+    prestamo p ON u.id_usuario = p.id_usuario
+GROUP BY
+    u.nombre
+ORDER BY
+    COUNT(p.id_prestamo) DESC
+LIMIT 1;

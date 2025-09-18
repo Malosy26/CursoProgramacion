@@ -1,0 +1,56 @@
+SET search_path TO ejercicio2;
+/*
+Utilizando la misma base de datos del ejercicio 2, se desea crear un procedimiento
+almacenado para aplicar penalizaciones automáticas a los usuarios que devuelvan un libro
+con retraso.
+● El procedimiento debe llamarse aplicar_penalizaciones.
+● No recibe parámetros.
+● Debe recorrer todos los préstamos devueltos con retraso (más de 14 días después de
+la fecha de inicio).
+● Por cada préstamo con retraso, calcular cuántos días de retraso hubo y registrar un
+pago en la tabla Pago, aplicando una penalización de 0,50 € por cada día de
+retraso.
+● Cada inserción en la tabla Pago debe incluir: id_usuario, id_prestamo, fecha actual y
+el importe calculado.
+● El procedimiento debe usar un bucle o un cursor para recorrer los registros.*/
+
+CREATE OR REPLACE PROCEDURE aplicar_penalizaciones()
+LANGUAGE plpgsql
+AS $$
+DECLARE
+    c CURSOR FOR
+        SELECT p.id_prestamo, p.id_usuario, p.fecha_inicio, p.fecha_devolucion
+        FROM Prestamo AS p
+        WHERE p.estado = 'devuelto'
+        AND p.fecha_devolucion > (p.fecha_inicio + INTERVAL '14 days');
+    prestamo_record RECORD;
+    dias_retraso INT;
+    importe_penalizacion DECIMAL(10,2);
+BEGIN
+    OPEN c;
+    LOOP
+        FETCH c INTO prestamo_record;
+        EXIT WHEN NOT FOUND;
+
+        -- Calcular días de retraso
+        dias_retraso := EXTRACT(DAY FROM (prestamo_record.fecha_devolucion - (prestamo_record.fecha_inicio + INTERVAL '14 days')))::INT;
+        -- Me he vuelto loco creo que sin el cast a INT tambien funciona
+
+        RAISE NOTICE 'Días de retraso = %', dias_retraso;
+
+        -- Calcular importe de la penalización
+        importe_penalizacion := dias_retraso * 0.50;
+
+        -- Insertar el pago en la tabla Pago
+        INSERT INTO Pago (id_usuario, id_prestamo, fecha_pago, importe)
+        VALUES (prestamo_record.id_usuario, prestamo_record.id_prestamo, CURRENT_DATE, importe_penalizacion);
+    END LOOP;
+    CLOSE c;
+
+    RAISE NOTICE 'Penalizaciones aplicadas correctamente.';
+END;
+$$;
+
+
+
+CALL aplicar_penalizaciones()
