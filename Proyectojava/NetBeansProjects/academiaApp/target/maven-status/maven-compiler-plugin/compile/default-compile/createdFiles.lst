@@ -1,5 +1,5 @@
 academia/avante/model/Alumno.class
 academia/avante/model/Curso.class
 academia/avante/DataBaseConfig/Config.class
-academia/avante/AcademiaController/AcademiaController.class
 academia/avante/academiaapp/AcademiaApp.class
+academia/avante/AcademiaController/AcademiaController.class

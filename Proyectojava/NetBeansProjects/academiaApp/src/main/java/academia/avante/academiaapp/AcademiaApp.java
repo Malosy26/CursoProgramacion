@@ -17,6 +17,11 @@ public class AcademiaApp {
         AcademiaController ac = new AcademiaController();
         
         ac.imprimeCursos();
+        System.out.println("==================================================");
+        System.out.println("==================================================");
+        System.out.println("==================================================");
+        System.out.println("==================================================");
+        ac.imprimeAlumnos();
         
         
         

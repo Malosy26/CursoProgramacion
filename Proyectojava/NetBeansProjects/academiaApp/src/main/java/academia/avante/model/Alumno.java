@@ -19,6 +19,7 @@ import lombok.NoArgsConstructor;
 public class Alumno {
     private int id;
     private String nombre;
+    private String apellidos;
     private String email;
     private int curso_id;
     
