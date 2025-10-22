@@ -23,4 +23,5 @@ public class Alumno {
     private String email;
     private int curso_id;
     
+    
 }
