@@ -1,0 +1,7 @@
+academia/model/AcademiaUtil.class
+academia/model/Alumno$AlumnoBuilder.class
+academia/model/Curso$CursoBuilder.class
+academia/model/Alumno.class
+academia/main/AcademiaHibernada.class
+academia/model/Curso.class
+academia/dao/AlumnoDAO.class
